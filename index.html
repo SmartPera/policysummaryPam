@@ -1,0 +1,2997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SP Ad Astra — Marvin">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0D1B3E">
+<link rel="apple-touch-icon" sizes="180x180" href="icon.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icon.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icon.png">
+<link rel="apple-touch-startup-image" href="icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon.png">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SP-Ad Astra Portfolio — Marvin</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+html,body{width:100%;margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1D4ED8;--navy2:#1E40AF;
+  --gold:#C9A84C;--gold-lt:#FEF3CC;--gold-dk:#7A600E;
+  --blue:#EBF4FF;--blue3:#BFDBFE;
+  --bg:#F0F4FF;--white:#fff;--border:#CBD5E1;--b2:#E2E8F0;
+  --text:#1E293B;--muted:#64748B;--light:#F8FAFC;
+  --ok:#059669;--ok-bg:#ECFDF5;--ok-br:#6EE7B7;
+  --warn:#D97706;--warn-bg:#FFFBEB;--warn-br:#FCD34D;
+  --bad:#DC2626;--bad-bg:#FEF2F2;--bad-br:#FCA5A5;
+  --ret:#7C3AED;--ret-bg:#F5F3FF;--ret-br:#C4B5FD;
+  --edu:#0369A1;--edu-bg:#EFF6FF;--edu-br:#BAE6FD;
+  --php:#15803D;--php-bg:#F0FDF4;
+}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);font-size:13px;margin:0;padding:0;width:100%}
+.app{width:100%;box-sizing:border-box;padding:12px 16px}
+.hdr{background:var(--white);border-bottom:1px solid var(--border);padding:14px 16px;margin-bottom:10px}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo-box{width:54px;height:54px;border-radius:10px;background:var(--navy);overflow:hidden;flex-shrink:0}
+.logo-box img{width:54px;height:54px;object-fit:cover}
+.bt .team{font-size:9px;letter-spacing:2.5px;color:var(--gold-dk);text-transform:uppercase;font-weight:700}
+.bt .title{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--navy);font-weight:600;line-height:1}
+.bt .tagline{font-size:9px;color:var(--muted);letter-spacing:.8px;margin-top:2px}
+.adv{text-align:right}
+.adv .an{font-weight:700;color:var(--navy);font-size:13px}
+.adv .at{color:var(--muted);font-size:11px;margin-top:1px}
+.adv .ac{color:var(--muted);font-size:10px;margin-top:1px}
+.cs{margin-top:14px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 14px;background:var(--blue);border:1px solid var(--blue3);border-radius:10px}
+.cs-name{font-family:"Cormorant Garamond",serif;font-size:18px;color:var(--navy);font-weight:500;border:none;background:transparent;outline:none;min-width:180px;flex:1}
+.cs-name::placeholder{color:#94A3B8}
+.cs-meta{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.sel,.inp{background:var(--white);border:1px solid var(--border);border-radius:7px;padding:5px 10px;font-size:11px;outline:none;font-family:"DM Sans",sans-serif;color:var(--text)}
+.dt{font-size:10px;color:var(--muted);white-space:nowrap}
+.php-bar{background:var(--php-bg);border:1px solid #BBF7D0;border-radius:9px;padding:8px 14px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--php)}
+.php-bar label{font-weight:600}
+.php-inp{width:80px;border:1px solid #BBF7D0;border-radius:6px;padding:4px 8px;font-size:11px;text-align:right;font-family:"DM Sans",sans-serif;outline:none;background:var(--white);color:var(--text)}
+.php-btn{padding:5px 14px;border-radius:6px;border:1.5px solid #BBF7D0;cursor:pointer;font-size:11px;font-family:"DM Sans",sans-serif;background:var(--white);color:var(--php);font-weight:600}
+.php-btn.on{background:var(--php);color:var(--white);border-color:var(--php)}
+.php-line{font-size:.78em;color:var(--php);font-weight:600;margin-top:1px}
+.tabs{display:flex;gap:0;background:var(--white);border-bottom:2px solid var(--border);margin-bottom:12px;padding:0}
+.tb{flex:1;padding:10px 4px;cursor:pointer;font-size:12px;font-weight:500;color:var(--muted);border:none;background:transparent;font-family:"DM Sans",sans-serif;text-align:center;border-bottom:3px solid transparent}
+.tb.on{background:var(--navy);color:var(--white);font-weight:600}
+.card{background:var(--white);border-radius:12px;border:1px solid var(--border);padding:18px;margin-bottom:12px}
+.ch{display:flex;align-items:center;gap:7px;margin-bottom:14px}
+.chb{width:3px;height:15px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.ch h3{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--navy)}
+.ch .cn{font-size:10px;color:var(--muted);margin-left:auto}
+.mpills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.mp{padding:5px 13px;border-radius:20px;border:1.5px solid var(--border);cursor:pointer;font-size:11px;font-weight:500;color:var(--muted);background:var(--white);font-family:"DM Sans",sans-serif;display:inline-flex;align-items:center;gap:4px}
+.mp.on{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.mp.add{border-style:dashed;border-color:var(--gold);color:var(--gold-dk)}
+.mpdel{opacity:.5;cursor:pointer;font-size:10px;margin-left:2px}
+.amf{background:var(--blue);border:1px solid var(--blue3);border-radius:10px;padding:12px 14px;margin-bottom:12px;display:none}
+.amf.show{display:block}
+.amf-row{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.amf-fg{display:flex;flex-direction:column;gap:3px}
+.amf-fg label{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.amf-fg input,.amf-fg select{border:1px solid var(--border);border-radius:7px;padding:6px 10px;font-size:12px;font-family:"DM Sans",sans-serif;outline:none;background:var(--white);color:var(--text)}
+.tblwrap{overflow-x:auto}
+.ptbl{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+.ptbl th{background:var(--navy);color:rgba(255,255,255,.82);padding:7px 8px;text-align:left;font-weight:500;font-size:10px;white-space:nowrap}
+.ptbl th:first-child{border-radius:7px 0 0 7px}
+.ptbl th:last-child{border-radius:0 7px 7px 0;text-align:center}
+.ptbl td{padding:6px 8px;border-bottom:1px solid var(--b2);vertical-align:top;color:var(--muted)}
+.ptbl tr:last-child td{border-bottom:none}
+.ptbl tr:hover td{background:#F9FAFB}
+.ptbl input,.ptbl select{border:1px solid var(--b2);border-radius:5px;padding:3px 6px;font-size:11px;font-family:"DM Sans",sans-serif;outline:none;background:#FAFAFA;color:var(--text)}
+.ptbl input[type=text],.ptbl input[type=date]{width:100%}
+.ptbl input:focus,.ptbl select:focus{border-color:var(--gold);background:var(--white)}
+.ni{text-align:right!important}
+.ben-row input[list]{text-align:left!important}
+.ben-wrap{display:flex;flex-direction:column;gap:3px}
+.ben-row{display:flex;align-items:center;gap:4px;padding:2px 0;flex-wrap:nowrap}
+.ben-row .ben-type{width:180px;font-size:10px;text-align:left;padding:2px 4px;border:1px solid var(--b2);border-radius:4px;outline:none;background:#fff;color:var(--text);font-family:"DM Sans",sans-serif;cursor:pointer}
+.ben-row .ben-type:focus{border-color:var(--gold)}
+.ben-row .ben-sa{width:90px;font-size:10px;text-align:right;padding:2px 5px;border:1px solid var(--b2);border-radius:4px}
+.ben-sel{width:170px;font-size:10px;padding:2px 5px;border:1px solid var(--b2);border-radius:4px;text-align:left;font-family:"DM Sans",sans-serif;text-align:left;background:#fff;color:var(--text);cursor:pointer}
+.ben-cust{width:170px;font-size:10px;padding:2px 5px;text-align:left;border:1px solid var(--gold);border-radius:4px;font-family:"DM Sans",sans-serif;text-align:left;background:#FFFDF5;color:var(--text)}
+.ben-del{background:#FEE2E2;border:none;color:var(--bad);border-radius:4px;padding:2px 6px;cursor:pointer;font-size:10px;flex-shrink:0}
+.ben-add{background:transparent;border:1px dashed var(--gold);color:var(--gold-dk);border-radius:4px;padding:2px 8px;cursor:pointer;font-size:10px;margin-top:3px;font-family:"DM Sans",sans-serif}
+.pbox{margin-top:10px;background:var(--light);border-radius:9px;border:1px solid var(--b2);padding:11px 14px}
+.pt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);margin-bottom:7px}
+.pr{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;border-bottom:1px solid var(--b2)}
+.pr:last-child{border-bottom:none;padding-top:6px;font-weight:700;font-size:13px;color:var(--navy)}
+.pl{color:var(--muted)}
+.btn-add{background:transparent;border:1.5px dashed var(--gold);color:var(--gold-dk);border-radius:7px;padding:6px 13px;cursor:pointer;font-size:11px;font-weight:500;font-family:"DM Sans",sans-serif;margin-top:8px}
+.btn-del{background:#FEE2E2;border:none;color:var(--bad);border-radius:5px;padding:3px 7px;cursor:pointer;font-size:10px;font-family:"DM Sans",sans-serif}
+.btn-p{background:var(--navy);color:var(--white);border:none;border-radius:8px;padding:9px 17px;cursor:pointer;font-family:"DM Sans",sans-serif;font-weight:600;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+.btn-g{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:9px 17px;cursor:pointer;font-family:"DM Sans",sans-serif;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:6px}
+.btn-o{background:var(--white);color:var(--navy);border:1px solid var(--border);border-radius:8px;padding:8px 15px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.fgg{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:10px}
+.fg{display:flex;flex-direction:column;gap:3px}
+.fg label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.fg input,.fg select{border:1px solid var(--border);border-radius:7px;padding:7px 10px;font-size:12px;font-family:"DM Sans",sans-serif;outline:none;color:var(--text);background:var(--light)}
+.fg input:focus,.fg select:focus{border-color:var(--gold);background:var(--white)}
+.fg .hint{font-size:9px;color:var(--ok);margin-top:2px}
+.exbox{background:var(--ok-bg);border:1.5px solid var(--ok-br);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:11px;color:#065F46}
+.exbox strong{font-size:13px;color:#047857}
+.ex-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;opacity:.7;margin-bottom:2px}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:12px}
+.met{background:var(--light);border-radius:9px;padding:11px 13px;border:1px solid var(--b2)}
+.met .ml{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.met .mv{font-size:15px;font-weight:700;color:var(--navy)}
+.met .ms{font-size:9px;color:var(--muted);margin-top:2px}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px;margin-bottom:12px}
+.gc{border-radius:9px;padding:11px}
+.gc.ok{background:var(--ok-bg);border:1.5px solid var(--ok-br)}
+.gc.warn{background:var(--warn-bg);border:1.5px solid var(--warn-br)}
+.gc.bad{background:var(--bad-bg);border:1.5px solid var(--bad-br)}
+.gc .gl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;opacity:.7;margin-bottom:3px}
+.gc .gv{font-size:16px;font-weight:700;line-height:1.1}
+.gc .gn{font-size:9px;opacity:.65;margin-top:2px}
+.gc .gg{font-size:9px;font-weight:600;margin-top:1px;color:var(--bad)}
+.gc .gs{font-size:9px;font-weight:700;margin-top:5px}
+.gc.ok .gv,.gc.ok .gs{color:#065F46}
+.gc.warn .gv,.gc.warn .gs{color:#92400E}
+.gc.bad .gv,.gc.bad .gs{color:#991B1B}
+.gap-section{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px;margin-top:12px}
+.gap-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.gap-section-title .gsb{width:3px;height:12px;border-radius:2px;flex-shrink:0}
+.ret-gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ret-gc{border-radius:8px;padding:10px;text-align:center}
+.ret-gc .rgl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;opacity:.7;margin-bottom:3px}
+.ret-gc .rgv{font-size:14px;font-weight:700}
+.ret-gc.need{background:var(--ret-bg);border:1.5px solid var(--ret-br);color:#5B21B6}
+.ret-gc.exist{background:var(--ok-bg);border:1.5px solid var(--ok-br);color:#065F46}
+.ret-gc.short{background:var(--bad-bg);border:1.5px solid var(--bad-br);color:#991B1B}
+.edu-gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.edu-gc{border-radius:8px;padding:10px;text-align:center}
+.edu-gc .egl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;opacity:.7;margin-bottom:3px}
+.edu-gc .egv{font-size:14px;font-weight:700}
+.edu-gc.need{background:var(--edu-bg);border:1.5px solid var(--edu-br);color:#0369A1}
+.edu-gc.exist{background:var(--ok-bg);border:1.5px solid var(--ok-br);color:#065F46}
+.edu-gc.short{background:var(--bad-bg);border:1.5px solid var(--bad-br);color:#991B1B}
+.gap-person-hdr{background:var(--navy);color:#fff;border-radius:9px;padding:8px 14px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.gap-person-hdr .rn{font-size:10px;color:rgba(255,255,255,.55);margin-left:auto;font-weight:400}
+.cw{position:relative;width:100%}
+.rttbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
+.rttbl th{background:var(--light);color:var(--muted);padding:7px 9px;font-weight:700;font-size:10px;border-bottom:1px solid var(--border)}
+.rttbl th:not(:first-child){text-align:right}
+.rttbl td{padding:6px 9px;border-bottom:1px solid var(--b2);color:var(--muted);text-align:right}
+.rttbl td:first-child{text-align:left;font-weight:500;color:var(--navy)}
+.rttbl .hl td{background:var(--gold-lt);font-weight:700;color:var(--navy)!important}
+.edu-summary-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+.edu-summary-tbl th{background:var(--navy);color:rgba(255,255,255,.82);padding:7px 8px;text-align:right;font-weight:500;font-size:10px}
+.edu-summary-tbl th:first-child{text-align:left;border-radius:7px 0 0 7px}
+.edu-summary-tbl th:last-child{border-radius:0 7px 7px 0}
+.edu-summary-tbl td{padding:6px 8px;border-bottom:1px solid var(--b2);text-align:right;color:var(--muted)}
+.edu-summary-tbl td:first-child{text-align:left;font-weight:500;color:var(--navy)}
+.edu-summary-tbl .total-row td{background:var(--gold-lt);font-weight:700;color:var(--navy);border-bottom:none}
+.nta{width:100%;min-height:90px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:"DM Sans",sans-serif;font-size:12px;resize:vertical;outline:none;color:var(--muted)}
+.nta:focus{border-color:var(--gold)}
+.disc{margin-top:12px;padding:10px 14px;background:var(--gold-lt);border-radius:8px;font-size:10px;color:var(--gold-dk);line-height:1.5}
+.off{display:none}
+#ld{display:none;position:fixed;inset:0;background:rgba(13,27,62,.78);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+#ld.on{display:flex}
+.spin{width:38px;height:38px;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#ld p{color:#fff;font-size:13px;font-weight:500}
+
+/* CLIENT PANEL */
+.cp-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200}
+.cp-overlay.show{display:block}
+.cp-panel{position:fixed;top:0;right:-420px;width:420px;height:100vh;background:var(--white);border-left:1.5px solid var(--border);z-index:201;transition:right .3s ease;display:flex;flex-direction:column;box-shadow:-4px 0 20px rgba(0,0,0,.1)}
+.cp-panel.open{right:0}
+.cp-header{background:var(--navy);color:#fff;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cp-header h3{font-size:14px;font-weight:600}
+.cp-header button{background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px}
+.cp-save-btn{margin:14px 16px 0;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;font-family:"DM Sans",sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;gap:7px;flex-shrink:0}
+.cp-save-btn:hover{background:var(--navy2)}
+.cp-search{padding:10px 16px;flex-shrink:0}
+.cp-search input{width:100%;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12px;font-family:"DM Sans",sans-serif;outline:none;color:var(--text)}
+.cp-search input:focus{border-color:var(--gold)}
+.cp-list{flex:1;overflow-y:auto;padding:0 16px 16px}
+.cp-empty{color:var(--muted);font-size:12px;text-align:center;padding:30px 0}
+.cp-item{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;cursor:pointer;transition:.15s;position:relative}
+.cp-item:hover{border-color:var(--gold);background:#FFFDF5}
+.cp-item .ci-name{font-weight:600;color:var(--navy);font-size:13px}
+.cp-item .ci-meta{font-size:10px;color:var(--muted);margin-top:2px}
+.cp-item .ci-actions{display:flex;gap:6px;margin-top:8px}
+.cp-item .ci-load{background:var(--navy);color:#fff;border:none;border-radius:6px;padding:4px 12px;cursor:pointer;font-size:11px;font-family:"DM Sans",sans-serif;font-weight:500}
+.cp-item .ci-del{background:#FEE2E2;color:var(--bad);border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:11px;font-family:"DM Sans",sans-serif}
+.hdr-clients-btn{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:10px}
+.hdr-clients-btn:hover{background:var(--navy2)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 20px;border-radius:10px;font-size:12px;font-weight:500;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+
+.btn-new-client{background:#DBEAFE;color:#1E40AF;border:1.5px solid #93C5FD;border-radius:8px;padding:8px 14px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:10px;white-space:nowrap}
+.btn-new-client:hover{background:#BFDBFE;color:#1E3A8A}
+
+/* CUSTOM BEN COMBOBOX */
+.ben-combo{position:relative;flex-shrink:0}
+.ben-type-inp{text-align:left!important;width:165px!important;border:1px solid var(--b2);border-radius:4px;padding:2px 6px;font-size:10px;font-family:"DM Sans",sans-serif;outline:none;background:#fff;color:var(--text)}
+.ben-type-inp:focus{border-color:var(--gold)}
+.ben-dd{position:absolute;top:calc(100% + 2px);left:0;min-width:200px;background:var(--white);border:1px solid var(--border);border-radius:8px;max-height:220px;overflow-y:auto;z-index:500;box-shadow:0 4px 16px rgba(0,0,0,.12);display:none}
+.ben-dd.open{display:block}
+.ben-dd-item{padding:6px 11px;cursor:pointer;font-size:11px;color:var(--text);white-space:nowrap}
+.ben-dd-item:hover{background:var(--blue);color:var(--navy)}
+.ben-dd-item.selected{background:var(--gold-lt);font-weight:600}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+</head>
+<body>
+<div class="app">
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="brand">
+      <div class="logo-box"><img id="logoImg" alt="SP-Ad Astra"/></div>
+      <div class="bt">
+        <div class="team">SP &middot; Ad Astra</div>
+        <div class="title">Portfolio Summary</div>
+        <div class="tagline">YOUR FINANCIAL NORTH</div>
+      </div>
+    </div>
+    <div class="adv">
+      <div class="an">Pamela Rose Quinto</div>
+      <div class="at">Financial Services Consultant &middot; AIA Singapore</div>
+      <div class="ac">+65 8874 1775 &nbsp;&middot;&nbsp; pamquinto@aia.com.sg</div>
+    </div>
+  </div>
+  <div class="cs">
+    <input class="cs-name" id="clientName" type="text" placeholder="Client Full Name"/>
+    <div class="cs-meta">
+      <select class="sel" id="clientStatus" onchange="syncAll()">
+        <option value="single">Single</option>
+        <option value="married" selected>Married w/ Children</option>
+        <option value="married_nc">Married, No Children</option>
+      </select>
+      <input class="inp" id="annualIncome" type="text" placeholder="Annual Income SGD" style="width:155px" oninput="numFmt(this);syncAll()"/>
+      <input class="inp" id="clientAge" type="text" placeholder="Age" style="width:62px" oninput="syncAll()"/>
+      <span class="dt" id="prepDate"></span>
+    </div>
+  </div>
+</div>
+<div style="display:flex;justify-content:flex-end;margin-bottom:6px;gap:8px;align-items:center">
+ <button onclick="newClient()" style="background:#DBEAFE;color:#1E40AF;border:1.5px solid #93C5FD;border-radius:8px;padding:8px 14px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px">&#10010; New Client</button><button class="hdr-clients-btn" onclick="openClientsPanel()">&#128220; Saved Clients</button>
+</div>
+<div class="php-bar">
+  <label>&#8369; PHP Equivalent:</label>
+  <button class="php-btn" id="phpBtn" onclick="togglePHP()">OFF</button>
+  <span style="color:var(--muted)">|&nbsp; 1 SGD =</span>
+  <input class="php-inp" id="phpRate" type="text" value="37.00" oninput="numFmt(this);reRender()"/>
+  <span style="color:var(--muted)">PHP</span>
+  <span style="color:var(--muted);font-size:10px;margin-left:6px">Toggle ON to show PHP equivalent on all amounts</span>
+</div>
+<div class="tabs">
+  <button class="tb on" id="t-policies" onclick="showTab('policies')">Policies</button>
+  <button class="tb" id="t-gap" onclick="showTab('gap')">Gap Analysis</button>
+  <button class="tb" id="t-retirement" onclick="showTab('retirement')">Retirement</button>
+  <button class="tb" id="t-education" onclick="showTab('education')">Education</button>
+  <button class="tb" id="t-report" onclick="showTab('report')">Report + PDF</button>
+</div>
+<!-- POLICIES -->
+<div id="tab-policies">
+  <div class="mpills" id="memberPills"></div>
+  <div class="amf" id="amfBox">
+    <div class="amf-row">
+      <div class="amf-fg"><label>Type</label>
+        <select id="amfType" style="width:110px" onchange="amfTypeChange()">
+          <option value="spouse">Spouse</option>
+          <option value="child">Child</option>
+        </select>
+      </div>
+      <div class="amf-fg"><label>Full Name</label><input type="text" id="amfName" placeholder="Full name" style="width:170px"/></div>
+      <div class="amf-fg" id="amfAgeRow" style="display:none"><label>Age</label><input type="text" id="amfAge" placeholder="Age" style="width:65px"/></div>
+      <button class="btn-p" style="align-self:flex-end" onclick="confirmAddMember()">Add</button>
+      <button class="btn-o" style="align-self:flex-end" onclick="cancelAddMember()">Cancel</button>
+    </div>
+  </div>
+  <div id="memberPolicies"></div>
+</div>
+<!-- GAP -->
+<div id="tab-gap" class="off">
+  <div class="card">
+    <div class="ch"><div class="chb"></div><h3>Gap Analysis per Insured</h3><span class="cn">Select a person to view their individual gap</span></div>
+    <div class="mpills" id="gapMemberPills"></div>
+    <div id="gapPersonContent"></div>
+  </div>
+</div>
+<!-- RETIREMENT -->
+<div id="tab-retirement" class="off">
+  <div id="ret-exbox"></div>
+  <div class="card">
+    <div class="ch"><div class="chb"></div><h3>Retirement Planner</h3><span class="cn">Growing Annuity PV &mdash; Primary + Spouse Combined</span></div>
+    <div class="fgg">
+      <div class="fg"><label>Current Age</label><input type="text" id="r_age" value="35" oninput="calcRet()"/><div class="hint" id="r_age_hint"></div></div>
+      <div class="fg"><label>Retirement Age</label><input type="text" id="r_ret_age" value="60" oninput="calcRet()"/></div>
+      <div class="fg"><label>Life Expectancy</label><input type="text" id="r_life" value="85" oninput="calcRet()"/></div>
+      <div class="fg"><label>Monthly Income Today (SGD)</label><input type="text" id="r_income" value="3,000" oninput="numFmt(this);calcRet()" class="ni"/></div>
+      <div class="fg"><label>Inflation Rate (%)</label><input type="text" id="r_inf" value="4" oninput="calcRet()"/></div>
+      <div class="fg"><label>Portfolio Return (%)</label><input type="text" id="r_ret_rate" value="6" oninput="calcRet()"/></div>
+      <div class="fg"><label>Existing Retirement Value (SGD)</label><input type="text" id="r_existing" value="0" oninput="numFmt(this);calcRet()" class="ni"/><div class="hint" id="r_existing_hint"></div></div>
+    </div>
+    <div id="retMetrics" class="mgrid" style="margin-top:14px"></div>
+    <div class="cw" style="height:230px;margin-top:4px"><canvas id="retChart" role="img" aria-label="Retirement chart"></canvas></div>
+    <div id="retTable"></div>
+  </div>
+</div>
+<!-- EDUCATION -->
+<div id="tab-education" class="off">
+  <div id="eduTabContent"></div>
+</div>
+<!-- REPORT -->
+<div id="tab-report" class="off">
+  <div class="card">
+    <div class="ch"><div class="chb"></div><h3>Advisor Notes</h3></div>
+    <textarea class="nta" id="advNotes" placeholder="Add personalised recommendations, next steps..."></textarea>
+    <div class="btn-row" style="margin-top:14px">
+      <button class="btn-g" onclick="generateSimplifiedPDF()" style="display:inline-flex;align-items:center;gap:7px;padding:10px 22px;font-size:13px">&#128438; Generate Report Summary</button>
+      <button class="btn-o" onclick="refreshReport()">&#8635; Preview</button>
+    </div>
+  </div></div>
+  <div id="reportPreview"></div>
+  <div class="disc">Prepared by Pamela Rose Quinto, Financial Services Consultant, AIA Singapore Pte. Ltd. (Reg. No. 201106386R). +65 8874 1775 | pamquinto@aia.com.sg. For illustration only &mdash; not a contract of insurance.</div>
+</div>
+</div>
+<div id="ld"><div class="spin"></div><p id="ldTxt">Building PDF...</p></div>
+<datalist id="policyNameList">
+  <option value="Absolute Critical Cover">
+  <option value="Asset Builder">
+  <option value="Diabetes Care">
+  <option value="Family First Protect">
+  <option value="Family First Secure">
+  <option value="Genfit PA">
+  <option value="Guaranteed Protect">
+  <option value="Guaranteed Protect Plus">
+  <option value="Healthshield Goldmax A Basic">
+  <option value="Healthshield Goldmax A w/Rider">
+  <option value="Healthshield Goldmax B Basic">
+  <option value="Healthshield Goldmax B w/Rider">
+  <option value="Hospital Income">
+  <option value="Invest Easy">
+  <option value="Life Dividends">
+  <option value="Pink of Health">
+  <option value="Platinum Accidentcare">
+  <option value="Platinum Generations">
+  <option value="Platinum Health">
+  <option value="Platinum Retirement Elite">
+  <option value="Platinum Wealth Elite">
+  <option value="Platinum Wealth Venture">
+  <option value="Power Critical Cover">
+  <option value="Pro Achiever">
+  <option value="Pro Achiever 2.0">
+  <option value="Pro Achiever 3.0">
+  <option value="Pro Lifetime Protector">
+  <option value="Secure Flexi Term">
+  <option value="Secure Term Plus">
+  <option value="Solitaire Accident">
+  <option value="Star Protector Plus">
+  <option value="Triple Critical Cover">
+  <option value="Ultimate Critical Cover">
+</datalist>
+</datalist>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+var LOGO='icon.png';
+document.getElementById('logoImg').src=LOGO;
+document.getElementById('prepDate').textContent=new Date().toLocaleDateString('en-SG',{day:'2-digit',month:'short',year:'numeric'});
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+var phpOn=false, curTab='policies';
+var members=[{id:'m0',type:'primary',name:'',age:null}];
+var activeMId='m0', activeGapMId='m0';
+var midCtr=1,pidCtr=0,bidCtr=0;
+var pMap={};
+var gapCh=null,retCh=null;
+var eduCharts={};
+// Global results for cross-tab gap references
+var retData={amount:0,existFV:0,shortfall:0,monthlyC:0,amount_annualIncome:0};
+var eduData={}; // keyed by memberId: {lump,exFV,shortfall,monthlyC,name,age,uni,dur,tuition,inf,ret}
+
+var BEN_TYPES=['Accident Medical','Accidental Daily Income','Accidental Death','Accidental Total Disability','Baby Protector','Critical Illness','Daily Hospital Income','Daily ICU Income','Death','Double Critical Cover','Early Stage Critical Illness','Early Waiver (ECPWP)','Hospital Income','Hospitalisation Limit','Income Benefit','Investment / Savings Value','Lifetime Critical Cover','Multi Early Illness','Others','Payor Benefit','Relapse Benefit','Special Conditions','TCM/Chiro','Total Permanent Disability','Waiver of Premium','Weekly Income'];
+var PLAN_TYPES=['Life Insurance','Critical Illness','Hospitalisation','Accident',
+  'Retirement','Education','Investment','Endowment','Disability','Medical Card'];
+var PAY_MODES=['Monthly','Quarterly','Semi-Annual','Annual','Single Premium'];
+
+// ── UTILITIES ────────────────────────────────────────────────────────────────
+function togglePHP(){
+  phpOn=!phpOn;
+  var b=document.getElementById('phpBtn');
+  b.classList.toggle('on',phpOn);
+  b.textContent=phpOn?'ON ₱':'OFF';
+  reRender();
+}
+function getPHPRate(){return parseFloat((document.getElementById('phpRate').value||'37').replace(/,/g,''))||37;}
+function phpStr(n){if(!phpOn||!n)return '';return '<div class="php-line">₱'+Math.round(n*getPHPRate()).toLocaleString('en-SG')+'</div>';}
+function phpK(n){if(!n)return '';var v=n*getPHPRate();return v>=1e6?'P'+(v/1e6).toFixed(1)+'M':v>=1e3?'P'+Math.round(v/1e3)+'K':'P'+Math.round(v);}
+function reRender(){
+  if(curTab==='gap'){renderGapMemberPills();renderGapForMember(activeGapMId);}
+  else if(curTab==='retirement')calcRet();
+  else if(curTab==='education')renderEducationTab();
+  else if(curTab==='policies'){members.forEach(function(m){calcPremiums(m.id);});}
+}
+function numFmt(el){
+  var raw=el.value.replace(/[^0-9.]/g,'');
+  var p=raw.split('.');
+  if(p.length>2)p=[p[0],p.slice(1).join('')];
+  p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  el.value=p.join('.');
+}
+function getN(id){var el=typeof id==='string'?document.getElementById(id):id;if(!el)return 0;return parseFloat((el.value||'').replace(/,/g,''))||0;}
+function fmt(n){return 'S$'+Math.round(n).toLocaleString('en-SG');}
+function fmtK(n){return n>=1e6?'S$'+(n/1e6).toFixed(2)+'M':n>=1e3?'S$'+Math.round(n/1e3)+'K':'S$'+Math.round(n);}
+function fmtD(n){return 'S$'+Number(n).toFixed(2);}
+function getMul(){var s=document.getElementById('clientStatus').value;return s==='married'?10:3;}
+function getPols(mid){if(!pMap[mid])pMap[mid]=[];return pMap[mid];}
+function escH(s){return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ── MEMBER MANAGEMENT ────────────────────────────────────────────────────────
+function amfTypeChange(){document.getElementById('amfAgeRow').style.display=document.getElementById('amfType').value==='child'?'flex':'none';}
+
+function renderMemberPills(){
+  var c=document.getElementById('memberPills');c.innerHTML='';
+  members.forEach(function(m){
+    var n=memberLabel(m);
+    var btn=document.createElement('button');
+    btn.className='mp'+(m.id===activeMId?' on':'');
+    btn.appendChild(document.createTextNode(n));
+    if(m.type!=='primary'){
+      var x=document.createElement('span');x.className='mpdel';x.textContent=' ✕';
+      x.setAttribute('data-mid',m.id);
+      x.addEventListener('click',function(e){e.stopPropagation();removeMember(e.target.getAttribute('data-mid'));});
+      btn.appendChild(x);
+    }
+    btn.setAttribute('data-mid',m.id);
+    btn.addEventListener('click',function(e){if(e.target.classList.contains('mpdel'))return;switchMember(e.currentTarget.getAttribute('data-mid'));});
+    c.appendChild(btn);
+  });
+  var add=document.createElement('button');add.className='mp add';add.textContent='+ Add Member';
+  add.addEventListener('click',function(){document.getElementById('amfBox').classList.add('show');document.getElementById('amfName').focus();});
+  c.appendChild(add);
+  renderMemberPolicies();
+}
+
+function memberLabel(m){
+  var fn=m.name?m.name.split(' ')[0]:'';
+  if(m.type==='primary')return 'Primary'+(fn?' ('+fn+')':'');
+  if(m.type==='spouse')return 'Spouse'+(fn?' ('+fn+')':'');
+  return (m.name||'Child')+(m.age?' ('+m.age+')':'');
+}
+
+function renderGapMemberPills(){
+  var c=document.getElementById('gapMemberPills');if(!c)return;c.innerHTML='';
+  members.forEach(function(m){
+    var btn=document.createElement('button');
+    btn.className='mp'+(m.id===activeGapMId?' on':'');
+    btn.textContent=memberLabel(m);
+    btn.setAttribute('data-mid',m.id);
+    btn.addEventListener('click',function(e){activeGapMId=e.currentTarget.getAttribute('data-mid');renderGapMemberPills();renderGapForMember(activeGapMId);});
+    c.appendChild(btn);
+  });
+}
+
+function switchMember(id){activeMId=id;renderMemberPills();}
+
+function confirmAddMember(){
+  var t=document.getElementById('amfType').value;
+  var n=document.getElementById('amfName').value.trim();
+  var a=t==='child'?(parseInt(document.getElementById('amfAge').value)||null):null;
+  if(!n){alert('Please enter a name.');return;}
+  if(t==='spouse'&&members.find(function(m){return m.type==='spouse';})){alert('Spouse already added.');return;}
+  var id='m'+midCtr++;
+  members.push({id:id,type:t,name:n,age:a});
+  activeMId=id;
+  document.getElementById('amfBox').classList.remove('show');
+  document.getElementById('amfName').value='';document.getElementById('amfAge').value='';
+  renderMemberPills();syncFromPolicies();
+}
+function cancelAddMember(){document.getElementById('amfBox').classList.remove('show');}
+function removeMember(id){
+  members=members.filter(function(m){return m.id!==id;});
+  if(activeMId===id)activeMId='m0';
+  if(activeGapMId===id)activeGapMId='m0';
+  renderMemberPolicies();renderMemberPills();syncFromPolicies();
+}
+
+// ── POLICY MANAGEMENT ────────────────────────────────────────────────────────
+function renderMemberPolicies(){
+  var c=document.getElementById('memberPolicies');c.innerHTML='';
+  var m=members.find(function(x){return x.id===activeMId;});if(!m)return;
+  var lbl=m.type==='primary'?'Primary':m.type==='spouse'?'Spouse: '+m.name:'Child: '+m.name+(m.age?', Age '+m.age:'');
+  var mid=m.id;
+  var div=document.createElement('div');div.className='card';
+  div.innerHTML='<div class="ch"><div class="chb"></div><h3>Policies — '+escH(lbl)+'</h3></div>'
+    +'<div class="tblwrap"><table class="ptbl"><thead><tr>'
+    +'<th style="width:16%">Policy Name</th>'
+    +'<th style="width:9%">Policy No.</th>'
+    +'<th style="width:9%">Inception</th>'
+    +'<th style="width:11%">Plan Type</th>'
+    +'<th style="width:27%">Benefits &amp; Sum Assured</th>'
+    +'<th style="width:10%">Policy Value</th>'
+    +'<th style="width:9%">Premium</th>'
+    +'<th style="width:8%">Mode</th>'
+    +'<th></th>'
+    +'</tr></thead><tbody id="ptbody-'+mid+'"></tbody></table></div>'
+    +'<button class="btn-add" id="btnadd-'+mid+'">+ Add Policy</button>'
+    +'<button class="btn-add" id="btntpl-'+mid+'" style="background:#FAF7ED;color:#92731B;border-color:#C9A84C;margin-left:8px">+ Add from Template</button>'
+    +'<div class="pbox" id="pbox-'+mid+'"></div>';
+  c.appendChild(div);
+  document.getElementById('btnadd-'+mid).addEventListener('click',function(){addPolicy(mid);});
+  document.getElementById('btntpl-'+mid).addEventListener('click',function(){addPolicyFromTemplate(mid);});
+  getPols(mid).forEach(function(p){renderPolicyRow(mid,p);});
+  calcPremiums(mid);
+}
+
+function addPolicy(mid){
+  var p={id:'p'+pidCtr++,name:'',no:'',inception:'',type:'Life Insurance',
+    benefits:[{id:'b'+bidCtr++,type:'',sa:0}],pv:0,prem:0,mode:'Monthly'};
+  getPols(mid).push(p);renderPolicyRow(mid,p);calcPremiums(mid);
+}
+
+function renderPolicyRow(mid,p){
+  var tbody=document.getElementById('ptbody-'+mid);if(!tbody)return;
+  var tr=document.createElement('tr');tr.id='pr-'+p.id;
+  var to=PLAN_TYPES.map(function(t){return '<option'+(t===p.type?' selected':'')+'>'+t+'</option>';}).join('');
+  var mo=PAY_MODES.map(function(m){return '<option'+(m===p.mode?' selected':'')+'>'+m+'</option>';}).join('');
+  tr.innerHTML='<td><input type="text" list="policyNameList" value="'+escH(p.name)+'" placeholder="Type or select..."/></td>'
+    +'<td><input type="text" value="'+escH(p.no)+'" placeholder="U12345678"/></td>'
+    +'<td><input type="date" value="'+p.inception+'"/></td>'
+    +'<td><select>'+to+'</select></td>'
+    +'<td><div class="ben-wrap" id="bw-'+p.id+'"></div><button class="ben-add" id="ba-'+p.id+'">+ Add Benefit</button></td>'
+    +'<td><input type="text" value="'+(p.pv?p.pv.toLocaleString('en-SG'):'')+'" placeholder="0" class="ni"/></td>'
+    +'<td><input type="text" value="'+(p.prem?p.prem.toLocaleString('en-SG'):'')+'" placeholder="0" class="ni"/></td>'
+    +'<td><select>'+mo+'</select></td>'
+    +'<td style="text-align:center"><button class="btn-del">✕</button></td>';
+  tbody.appendChild(tr);
+  var ins=tr.querySelectorAll('td input[type=text],td input[type=date]');
+  ins[0].addEventListener('input',function(){updP(mid,p.id,'name',this.value);});
+  ins[1].addEventListener('input',function(){updP(mid,p.id,'no',this.value);});
+  ins[2].addEventListener('change',function(){updP(mid,p.id,'inception',this.value);});
+  ins[3].addEventListener('input',function(){numFmt(this);updN(mid,p.id,'pv',this);});
+  ins[4].addEventListener('input',function(){numFmt(this);updN(mid,p.id,'prem',this);calcPremiums(mid);});
+  var ss=tr.querySelectorAll('select');
+  ss[0].addEventListener('change',function(){updP(mid,p.id,'type',this.value);});
+  ss[1].addEventListener('change',function(){updP(mid,p.id,'mode',this.value);calcPremiums(mid);});
+  tr.querySelector('.btn-del').addEventListener('click',function(){delPol(mid,p.id);});
+  document.getElementById('ba-'+p.id).addEventListener('click',function(){addBenefit(mid,p.id);});
+  p.benefits.forEach(function(b){renderBenRow(mid,p.id,b);});
+}
+
+function renderBenRow(mid,pid,b){
+  var wrap=document.getElementById('bw-'+pid);if(!wrap)return;
+  var row=document.createElement('div');row.className='ben-row';row.id='br-'+b.id;
+  row.innerHTML='<div class="ben-combo"><input type="text" class="ben-type-inp" value="'+escH(b.type||'')+'" placeholder="Select or type..." autocomplete="off"/><div class="ben-dd" id="bdd-'+b.id+'"></div></div>'
+    +'<input type="text" value="'+(b.sa?b.sa.toLocaleString('en-SG'):'')+'" placeholder="0" style="width:90px;font-size:10px;text-align:right;padding:2px 5px;border:1px solid var(--b2);border-radius:4px;background:#fafafa;color:var(--text);outline:none"/>'
+    +'<button class="ben-del">✕</button>';
+  wrap.appendChild(row);
+
+  var typeInp=row.querySelector('.ben-type-inp');
+  var dd=document.getElementById('bdd-'+b.id);
+
+  function showDD(filter){
+    var items=BEN_TYPES.filter(function(t){
+      return !filter||t.toLowerCase().indexOf(filter.toLowerCase())>=0;
+    });
+    if(!items.length){dd.classList.remove('open');return;}
+    dd.innerHTML=items.map(function(t){
+      var sel=(t===(b.type||''))||t===typeInp.value;
+      return '<div class="ben-dd-item'+(sel?' selected':'')+'" data-val="'+escH(t)+'">'+escH(t)+'</div>';
+    }).join('');
+    dd.classList.add('open');
+    dd.querySelectorAll('.ben-dd-item').forEach(function(item){
+      item.addEventListener('mousedown',function(e){
+        e.preventDefault();
+        typeInp.value=this.getAttribute('data-val');
+        dd.classList.remove('open');
+        var pl=getPols(mid).find(function(p){return p.id===pid;});
+        var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+        if(bn){bn.type=typeInp.value;syncFromPolicies();}
+      });
+    });
+  }
+
+  typeInp.addEventListener('focus',function(){showDD('');});
+  typeInp.addEventListener('input',function(){
+    showDD(this.value);
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+    if(bn){bn.type=this.value;syncFromPolicies();}
+  });
+  typeInp.addEventListener('blur',function(){
+    setTimeout(function(){dd.classList.remove('open');},160);
+  });
+
+  var saInp=row.querySelector('input:not(.ben-type-inp)');
+  saInp.addEventListener('focus',function(){this.style.borderColor='var(--gold)';this.style.background='#fff';});
+  saInp.addEventListener('blur',function(){this.style.borderColor='var(--b2)';this.style.background='#fafafa';});
+  saInp.addEventListener('input',function(){
+    numFmt(this);
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+    if(bn){bn.sa=getN(this);syncFromPolicies();}
+  });
+  row.querySelector('.ben-del').addEventListener('click',function(){
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    if(pl)pl.benefits=pl.benefits.filter(function(x){return x.id!==b.id;});
+    row.remove();syncFromPolicies();
+  });
+}
+function addBenefit(mid,pid){
+  var pl=getPols(mid).find(function(p){return p.id===pid;});if(!pl)return;
+  var b={id:'b'+bidCtr++,type:'',sa:0};
+  pl.benefits.push(b);renderBenRow(mid,pid,b);
+}
+
+function updP(mid,pid,f,v){var p=getPols(mid).find(function(x){return x.id===pid;});if(p){p[f]=v;syncFromPolicies();}}
+function updN(mid,pid,f,el){var p=getPols(mid).find(function(x){return x.id===pid;});if(p){p[f]=getN(el);syncFromPolicies();}}
+function delPol(mid,pid){pMap[mid]=getPols(mid).filter(function(x){return x.id!==pid;});var tr=document.getElementById('pr-'+pid);if(tr)tr.remove();calcPremiums(mid);syncFromPolicies();}
+
+function calcPremiums(mid){
+  var pols=getPols(mid);var box=document.getElementById('pbox-'+mid);if(!box)return;
+  if(!pols.length){box.innerHTML='';return;}
+  var monthly=0,annual=0;
+  var rows=pols.map(function(p){
+    var mo=0,an=0;
+    if(p.mode==='Monthly'){mo=p.prem;an=p.prem*12;}
+    else if(p.mode==='Quarterly'){mo=p.prem/3;an=p.prem*4;}
+    else if(p.mode==='Semi-Annual'){mo=p.prem/6;an=p.prem*2;}
+    else if(p.mode==='Annual'){mo=p.prem/12;an=p.prem;}
+    else if(p.mode==='Single Premium'){an=p.prem;}
+    monthly+=mo;annual+=an;
+    var modeLabel={Monthly:'mo',Quarterly:'qtr','Semi-Annual':'semi-annual',Annual:'yr','Single Premium':'single'}[p.mode]||p.mode;
+    var actualStr=p.prem?('S$'+p.prem.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2})+'/'+modeLabel):'S$0.00';
+    var moLabel=(p.mode!=='Monthly'&&p.mode!=='Single Premium')?' &nbsp;&middot;&nbsp; '+fmtD(mo)+'/mo equiv.':'';
+    return '<div class="pr"><span class="pl">'+(p.name||'Policy')+' <em style="opacity:.6;font-size:10px">('+p.mode+')</em></span>'
+      +'<span>'+actualStr+moLabel+'</span></div>';
+  });
+  box.innerHTML='<div class="pt">Premium Summary</div>'+rows.join('')
+    +'<div class="pr"><span>Total Monthly</span><span style="color:var(--ok)">'+fmtD(monthly)+'/month'+phpStr(monthly)+'</span></div>'
+    +'<div class="pr"><span>Total Annualised</span><span style="color:var(--ok)">'+fmt(annual)+'/year'+phpStr(annual)+'</span></div>';
+}
+
+// ── SYNC FROM POLICIES ────────────────────────────────────────────────────────
+function getCoverageForMember(mid){
+  var cov={death:0,td:0,ci:0,hosp:0,acc:0,retPV:0,eduPV:0};
+  getPols(mid).forEach(function(p){
+    var pt=(p.type||'').trim().toLowerCase();
+    var pv=parseFloat(String(p.pv||'0').replace(/,/g,''))||0;
+    if(pt==='retirement')cov.retPV+=pv;
+    if(pt==='education')cov.eduPV+=pv;
+    (p.benefits||[]).forEach(function(b){
+      var bt=(b.type||'').trim().toLowerCase();
+      var sa=parseFloat(String(b.sa||'0').replace(/,/g,''))||0;
+      if(!sa||!bt)return;
+      if(bt==='death'||bt==='accidental death')cov.death+=sa;
+      else if(bt==='accidental total disability'||bt==='total permanent disability')cov.td+=sa;
+      else if(bt==='critical illness'||bt==='double critical cover'||
+              bt==='early stage critical illness'||bt==='lifetime critical cover'||
+              bt==='multi early illness')cov.ci+=sa;
+      else if(bt==='hospitalisation limit'||bt==='hospitalization limit'||
+              bt==='yearly hospital limit'||bt==='hospital limit'||
+              bt==='annual hospital limit')cov.hosp+=sa;
+      // ACCIDENT MEDICAL
+      else if(bt==='accident medical')cov.acc+=sa;
+    });
+  });
+  return cov;
+}
+
+function syncFromPolicies(){
+  var retV=0,retPols=[];
+  var eduByChild={}; // memberId -> sum of pv
+  members.forEach(function(m){
+    // Only Primary and Spouse count for retirement
+    var forRet=(m.type==='primary'||m.type==='spouse');
+    getPols(m.id).forEach(function(p){
+      if(forRet&&p.type==='Retirement'){retV+=p.pv;retPols.push({pol:p,mem:m});}
+      if(p.type==='Education'){
+        if(!eduByChild[m.id])eduByChild[m.id]=0;
+        eduByChild[m.id]+=p.pv;
+      }
+    });
+  });
+  var re=document.getElementById('r_existing');if(re&&retV>0)re.value=retV.toLocaleString('en-SG');
+  var rh=document.getElementById('r_existing_hint');if(rh)rh.textContent=retV>0?'↑ from retirement/investment policies':'';
+  var reb=document.getElementById('ret-exbox');
+  if(reb)reb.innerHTML=retPols.length>0?'<div class="exbox"><div class="ex-lbl">Existing Retirement Policies Linked</div><strong>'+fmt(retV)+'</strong> from: '+retPols.map(function(x){return '<em>'+(x.pol.name||'Policy')+'</em>'+(x.mem.name?' ('+x.mem.name+')':'');}).join(', ')+'</div>':'';
+  var age=parseInt(document.getElementById('clientAge').value)||35;
+  var ra=document.getElementById('r_age');if(ra){ra.value=age;var rh2=document.getElementById('r_age_hint');if(rh2)rh2.textContent='↑ from client age';}
+  // Sync education values per child
+  members.forEach(function(m){
+    if(m.type!=='child')return;
+    var ev=eduByChild[m.id]||0;
+    if(!eduData[m.id])eduData[m.id]={};
+    if(ev>0)eduData[m.id].existingFromPolicy=ev;
+  });
+  if(curTab==='gap'){renderGapMemberPills();renderGapForMember(activeGapMId);}
+  else if(curTab==='retirement')calcRet();
+  else if(curTab==='education')renderEducationTab();
+}
+
+function syncAll(){syncFromPolicies();calcRet();renderEducationTab();}
+
+// ── GAP ANALYSIS ─────────────────────────────────────────────────────────────
+function renderGapForMember(mid){
+  var m=members.find(function(x){return x.id===mid;});if(!m)return;
+  var isChild=(m.type==='child');
+  var inc=getN('annualIncome');
+  var st=document.getElementById('clientStatus').value;
+  var dm=st==='married'?10:3;
+  var needs=isChild?{death:inc*3,td:inc*3,ci:inc*3,hosp:500000,acc:15000}:{death:inc*dm,td:inc*dm,ci:inc*5,hosp:500000,acc:15000};
+  var have=getCoverageForMember(mid);
+  var LABS=['Death','Total Disability','Early Illness','Hospitalisation','Accident'];
+  var KEYS=['death','td','ci','hosp','acc'];
+  var MULTS=isChild?['3x parent income','3x parent income','3x parent income','S$500K min','S$15K min']:[dm+'x income',dm+'x income','5x income','S$500K min','S$15K min'];
+  var lbl=m.type==='primary'?'Primary Client':m.type==='spouse'?'Spouse: '+(m.name||''):'Child: '+(m.name||'')+(m.age?' (Age '+m.age+')':'');
+  var ruleNote=isChild?'Death/TD/CI = 3× parent income | Hosp = S$500K | Accident = S$15K':'Death/TD = '+dm+'× annual income | CI = 5× | Hosp = S$500K | Accident = S$15K';
+  var html='<div class="gap-person-hdr">'+escH(lbl)+'<span class="rn">'+ruleNote+'</span></div>';
+  html+='<div class="ggrid">';
+  KEYS.forEach(function(k,i){
+    var pct=needs[k]>0?have[k]/needs[k]:1;
+    var cls=pct>=1?'ok':pct>=0.5?'warn':'bad';
+    var ico=pct>=1?'&#10004; Adequate':pct>=0.5?'&#9888; Partial':'&#10007; Shortfall';
+    var gap=Math.max(0,needs[k]-have[k]);
+    html+='<div class="gc '+cls+'">'
+      +'<div class="gl">'+LABS[i]+'</div>'
+      +'<div class="gv">'+fmtK(have[k])+phpStr(have[k])+'</div>'
+      +'<div class="gn">Need: '+fmtK(needs[k])+phpStr(needs[k])+'<br><em style="font-size:8px;opacity:.5">'+MULTS[i]+'</em></div>'
+      +(gap>0?'<div class="gg">Gap: '+fmtK(gap)+phpStr(gap)+'</div>':'')
+      +'<div class="gs">'+ico+'</div></div>';
+  });
+  // 6th card: Retirement (adults) or Education (children)
+  if(!isChild&&retData.amount>0){
+    var rGap=retData.shortfall;
+    var rCls=rGap<0.01?'ok':'bad';
+    var rIco=rGap<0.01?'&#10004; On Track':'&#10007; Shortfall';
+    html+='<div class="gc '+rCls+'">'
+      +'<div class="gl">Retirement Goal</div>'
+      +'<div class="gv">'+fmtK(retData.existFV)+phpStr(retData.existFV)+'</div>'
+      +'<div class="gn">Need: '+fmtK(retData.amount)+phpStr(retData.amount)+'<br><em style="font-size:8px;opacity:.5">From Retirement tab</em></div>'
+      +(rGap>0?'<div class="gg">Gap: '+fmtK(rGap)+phpStr(rGap)+'</div>':'')
+      +'<div class="gs">'+rIco+'</div>'
+      +(retData.monthlyC>0?'<div style="font-size:8px;margin-top:3px">Save '+fmt(Math.round(retData.monthlyC))+'/mo</div>':'')
+      +'</div>';
+  }
+  if(isChild&&eduData[mid]&&eduData[mid].lump>0){
+    var ed=eduData[mid];
+    var eGap=ed.shortfall||0;
+    var eCls=eGap<0.01?'ok':'bad';
+    var eIco=eGap<0.01?'&#10004; On Track':'&#10007; Shortfall';
+    html+='<div class="gc '+eCls+'">'
+      +'<div class="gl">Education Goal</div>'
+      +'<div class="gv">'+fmtK(ed.exFV||0)+phpStr(ed.exFV||0)+'</div>'
+      +'<div class="gn">Need: '+fmtK(ed.lump)+phpStr(ed.lump)+'<br><em style="font-size:8px;opacity:.5">From Education tab</em></div>'
+      +(eGap>0?'<div class="gg">Gap: '+fmtK(eGap)+phpStr(eGap)+'</div>':'')
+      +'<div class="gs">'+eIco+'</div>'
+      +(ed.monthlyC>0?'<div style="font-size:8px;margin-top:3px">Save '+fmt(Math.round(ed.monthlyC))+'/mo</div>':'')
+      +'</div>';
+  }
+  html+='</div>';
+  var chartId='gapChart-'+mid;
+  html+='<div class="cw" style="height:220px"><canvas id="'+chartId+'"></canvas></div>';
+  document.getElementById('gapPersonContent').innerHTML=html;
+  var hArr=KEYS.map(function(k){return have[k];});
+  var nArr=KEYS.map(function(k){return needs[k];});
+  var chartLabs=LABS.slice();
+  // Add Retirement/Education so chart has 6 bars matching 6 cards (visual alignment)
+  if(!isChild&&(retData.amount>0||retData.existFV>=0)){
+    chartLabs.push('Retirement Goal');
+    nArr.push(retData.amount||0);
+    hArr.push(retData.existFV||0);
+  }
+  if(isChild&&eduData[mid]){
+    chartLabs.push('Education Goal');
+    nArr.push(eduData[mid].total||0);
+    hArr.push(eduData[mid].exFV||0);
+  }
+  if(gapCh)gapCh.destroy();
+  gapCh=new Chart(document.getElementById(chartId),{type:'bar',
+    data:{labels:chartLabs,datasets:[
+      {label:'Recommended / Needed',data:nArr,minBarLength:8,backgroundColor:function(ctx){
+        var lbl=chartLabs[ctx.dataIndex]||'';
+        if(lbl==='Retirement Goal')return 'rgba(124,58,237,.12)';
+        if(lbl==='Education Goal')return 'rgba(3,105,161,.12)';
+        return 'rgba(30,58,138,.1)';
+      },borderColor:function(ctx){
+        var lbl=chartLabs[ctx.dataIndex]||'';
+        if(lbl==='Retirement Goal')return '#7C3AED';
+        if(lbl==='Education Goal')return '#0369A1';
+        return '#1E3A8A';
+      },borderWidth:1.5},
+      {label:'Current / Existing',data:hArr,minBarLength:8,backgroundColor:function(ctx){
+        var lbl=chartLabs[ctx.dataIndex]||'';
+        if(lbl==='Retirement Goal')return 'rgba(124,58,237,.55)';
+        if(lbl==='Education Goal')return 'rgba(3,105,161,.55)';
+        return 'rgba(201,168,76,.65)';
+      },borderColor:function(ctx){
+        var lbl=chartLabs[ctx.dataIndex]||'';
+        if(lbl==='Retirement Goal')return '#6D28D9';
+        if(lbl==='Education Goal')return '#0369A1';
+        return '#C9A84C';
+      },borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}}},
+      scales:{x:{ticks:{font:{size:11},maxRotation:0},grid:{display:false}},
+        y:{ticks:{callback:function(v){return fmtK(v);},font:{size:10}},grid:{color:'rgba(0,0,0,.05)'},beginAtZero:true}},
+      plugins:{
+        legend:{position:'top',labels:{font:{size:11},boxWidth:12}},
+        tooltip:{callbacks:{label:function(ctx){
+          return ctx.dataset.label+': '+fmt(ctx.parsed.y);
+        }}},
+        datalabels:{display:function(ctx){return ctx.parsed.y>0;},
+          anchor:'end',align:'top',
+          formatter:function(v){return v>0?fmtK(v):'';},
+          font:{size:8,weight:'600'},color:'#374151',clip:true}
+      }}});
+}
+
+// ── RETIREMENT ────────────────────────────────────────────────────────────────
+function calcRet(){
+  var age=parseInt(document.getElementById('r_age').value)||35;
+  var retAge=parseInt(document.getElementById('r_ret_age').value)||60;
+  var lifeExp=parseInt(document.getElementById('r_life').value)||85;
+  var monthly=getN('r_income')||3000;
+  var g=parseFloat(document.getElementById('r_inf').value)/100||0.04;
+  var r=parseFloat(document.getElementById('r_ret_rate').value)/100||0.06;
+  var existing=getN('r_existing')||0;
+  var yA=retAge-age,yD=lifeExp-retAge;
+  var PMT=monthly*12*Math.pow(1+g,yA);
+  var amount=Math.abs(r-g)<0.0001?PMT*yD/(1+r):PMT*(1-Math.pow((1+g)/(1+r),yD))/(r-g);
+  var existFV=existing*Math.pow(1+r,yA);
+  var shortfall=Math.max(0,amount-existFV);
+  var mr=r/12;
+  var mc=shortfall>0?shortfall*mr/(Math.pow(1+mr,yA*12)-1):0;
+  retData={amount:amount,existFV:existFV,shortfall:shortfall,monthlyC:mc,annualIncome:getN('annualIncome')};
+  var mets=[
+    {l:'Monthly Income at Retirement',v:fmt(Math.round(PMT/12)),p:Math.round(PMT/12),s:'Inflated at '+(g*100).toFixed(1)+'%'},
+    {l:'Total Amount Required',v:fmtK(amount),p:amount,s:'Growing Annuity PV'},
+    {l:'Existing Policy FV at Ret.',v:fmtK(existFV),p:existFV,s:'At age '+retAge},
+    {l:'Additional Amount Needed',v:fmtK(shortfall),p:shortfall,s:'After existing'},
+    {l:'Monthly Savings Required',v:fmt(Math.round(mc)),p:Math.round(mc),s:'For '+yA+' years'},
+    {l:'Drawdown Period',v:yD+' years',p:0,s:'Ages '+retAge+' to '+lifeExp}
+  ];
+  document.getElementById('retMetrics').innerHTML=mets.map(function(m){
+    return '<div class="met"><div class="ml">'+m.l+'</div><div class="mv">'+m.v+phpStr(m.p)+'</div><div class="ms">'+m.s+'</div></div>';
+  }).join('');
+  var years=Array.from({length:yA+1},function(_,i){return age+i;});
+  var built=years.map(function(_,i){var n=i*12;var sv=mc>0?mc*(Math.pow(1+mr,n)-1)/mr:0;return Math.round(existing*Math.pow(1+r,i)+sv);});
+  if(retCh)retCh.destroy();
+  retCh=new Chart(document.getElementById('retChart'),{type:'line',
+    data:{labels:years,datasets:[
+      {label:'Amount Built',data:built,borderColor:'#C9A84C',backgroundColor:'rgba(201,168,76,.08)',fill:true,tension:.4,pointRadius:0,borderWidth:2},
+      {label:'Target',data:years.map(function(){return Math.round(amount);}),borderColor:'rgba(30,58,138,.3)',borderDash:[5,3],pointRadius:0,borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}}},
+      scales:{x:{ticks:{font:{size:10},maxTicksLimit:8},grid:{display:false}},
+        y:{ticks:{callback:function(v){return fmtK(v);},font:{size:10}},grid:{color:'rgba(0,0,0,.05)'}}}}});
+  var step=Math.max(1,Math.floor(yA/8));
+  var tbl='<table class="rttbl"><thead><tr><th>Age</th><th>Year</th><th>Monthly Income</th><th>Amount Target</th><th>Amount Built</th><th>% Done</th></tr></thead><tbody>';
+  years.forEach(function(yr,i){
+    if(i%step!==0&&yr!==retAge)return;
+    var mi=Math.round(monthly*Math.pow(1+g,i));
+    var b=built[i]||0;var pct=amount>0?Math.min(100,Math.round(b/amount*100)):0;
+    tbl+='<tr'+(yr===retAge?' class="hl"':'')+'><td>'+yr+'</td><td>'+(new Date().getFullYear()+i)+'</td><td>'+fmt(mi)+'/mo</td><td>'+fmtK(amount)+'</td><td>'+fmtK(b)+'</td><td>'+pct+'%</td></tr>';
+  });
+  tbl+='</tbody></table>';
+  document.getElementById('retTable').innerHTML=tbl;
+}
+
+// ── EDUCATION (multi-child) ───────────────────────────────────────────────────
+function renderEducationTab(){
+  var container=document.getElementById('eduTabContent');container.innerHTML='';
+  var children=members.filter(function(m){return m.type==='child';});
+  if(children.length===0){
+    // Single generic calculator
+    renderOneEduSection(container,'default',null);
+  } else {
+    children.forEach(function(child){renderOneEduSection(container,child.id,child);});
+    renderEduSummary(container,children);
+  }
+}
+
+function renderOneEduSection(container,mid,child){
+  if(!eduData[mid])eduData[mid]={uni:18,dur:4,tuition:20000,inf:4,ret:5,existing:0,lump:0,exFV:0,shortfall:0,monthlyC:0};
+  var ed=eduData[mid];
+  var cAge=child&&child.age?child.age:3;
+  var cName=child&&child.name?child.name:'Child';
+  var epv=ed.existingFromPolicy||0;if(epv>0)ed.existing=epv;
+  var div=document.createElement('div');div.className='card';div.id='edu-card-'+mid;
+  var hdr=child?'Education Fund — '+escH(child.name+(child.age?' (Age '+child.age+')':'')):'Education Fund Calculator';
+  var tuitionFmt=ed.tuition?ed.tuition.toLocaleString('en-SG'):'20,000';
+  var existFmt=ed.existing?ed.existing.toLocaleString('en-SG'):'';
+  div.innerHTML='<div class="ch"><div class="chb"></div><h3>'+hdr+'</h3></div>'
+    +'<div class="fgg" id="edu-form-'+mid+'">'
+    +'<div class="fg"><label>Child Age</label><input type="text" id="ea-'+mid+'" value="'+cAge+'"/></div>'
+    +'<div class="fg"><label>University Age</label><input type="text" id="eu-'+mid+'" value="'+ed.uni+'"/></div>'
+    +'<div class="fg"><label>Degree Duration (yrs)</label><input type="text" id="ed-'+mid+'" value="'+ed.dur+'"/></div>'
+    +'<div class="fg"><label>Annual Tuition Today (SGD)</label><input type="text" id="et-'+mid+'" value="'+tuitionFmt+'" class="ni"/></div>'
+    +'<div class="fg"><label>Education Inflation (%)</label><input type="text" id="ei-'+mid+'" value="'+ed.inf+'"/></div>'
+    +'<div class="fg"><label>Fund Return (%)</label><input type="text" id="er-'+mid+'" value="'+ed.ret+'"/></div>'
+    +'<div class="fg"><label>Existing Fund (SGD)</label><input type="text" id="ee-'+mid+'" value="'+existFmt+'" class="ni"/>'
+    +'<div class="hint" id="ee-hint-'+mid+'">'+(epv>0?'↑ from education policy':'')+'</div></div>'
+    +'<div class="fg"><label>Child Name</label><input type="text" id="en-'+mid+'" value="'+escH(cName)+'"/></div>'
+    +'</div>'
+    +'<div id="edu-metrics-'+mid+'" class="mgrid" style="margin-top:14px"></div>'
+    +'<div id="edu-chart-'+mid+'" style="margin-top:4px"></div>';
+  container.appendChild(div);
+  // Attach event listeners (avoids inline oninput quoting issues)
+  (function(m){
+    var ids=['ea','eu','ed','ei','er','en'];
+    ids.forEach(function(pre){
+      var el=document.getElementById(pre+'-'+m);
+      if(el)el.addEventListener('input',function(){calcOneEdu(m);});
+    });
+    var etEl=document.getElementById('et-'+m);
+    if(etEl)etEl.addEventListener('input',function(){numFmt(this);calcOneEdu(m);});
+    var eeEl=document.getElementById('ee-'+m);
+    if(eeEl)eeEl.addEventListener('input',function(){numFmt(this);calcOneEdu(m);});
+  })(mid);
+  setTimeout(function(){calcOneEdu(mid);},50);
+}
+function calcOneEdu(mid){
+  var cA=parseInt(document.getElementById('ea-'+mid).value)||3;
+  var uA=parseInt(document.getElementById('eu-'+mid).value)||18;
+  var dur=parseInt(document.getElementById('ed-'+mid).value)||4;
+  var tuit=getN('et-'+mid)||20000;
+  var inf=parseFloat(document.getElementById('ei-'+mid).value)/100||0.04;
+  var ret=parseFloat(document.getElementById('er-'+mid).value)/100||0.05;
+  var ex=getN('ee-'+mid)||0;
+  var name=document.getElementById('en-'+mid).value||'Child';
+  var yrs=Math.max(1,uA-cA);
+
+  // Build year-by-year tuition table
+  var yearlyRows=[];
+  var totalCost=0;
+  for(var y=0;y<dur;y++){
+    var yearAge=uA+y;
+    var yearCost=tuit*Math.pow(1+inf,yrs+y);
+    totalCost+=yearCost;
+    yearlyRows.push({year:y+1,age:yearAge,cost:Math.round(yearCost)});
+  }
+
+  // Future value of existing fund at start of university
+  var exFV=ex*Math.pow(1+ret,yrs);
+  var shortfall=Math.max(0,totalCost-exFV);
+  var mr=ret/12;
+  var mc=shortfall>0&&yrs>0?shortfall*mr/(Math.pow(1+mr,yrs*12)-1)*(1+mr):0;
+
+  eduData[mid]={
+    uni:uA,dur:dur,tuition:tuit,inf:inf*100,ret:ret*100,existing:ex,
+    total:totalCost,exFV:exFV,shortfall:shortfall,monthlyC:mc,
+    lump:totalCost,// kept for gap analysis compat
+    name:name,age:cA,yearlyRows:yearlyRows,
+    existingFromPolicy:eduData[mid]?eduData[mid].existingFromPolicy:0
+  };
+
+  var metrics=document.getElementById('edu-metrics-'+mid);if(!metrics)return;
+
+  // Summary metric boxes
+  var sp=phpOn; var phpR=getPHPRate();
+  function p2(n){return sp&&n?'<div class="php-line">&#8369;'+Math.round(n*phpR).toLocaleString('en-SG')+'</div>':'';}
+  metrics.innerHTML=[
+    {l:'Annual Tuition Today',v:fmt(tuit),p:tuit,s:'Base amount'},
+    {l:'Year 1 Tuition (Inflated)',v:fmt(Math.round(tuit*Math.pow(1+inf,yrs))),p:Math.round(tuit*Math.pow(1+inf,yrs)),s:'At age '+uA},
+    {l:'Total Degree Cost',v:fmt(Math.round(totalCost)),p:Math.round(totalCost),s:dur+'-year degree'},
+    {l:'Existing Fund (FV at Uni)',v:fmt(Math.round(exFV)),p:Math.round(exFV),s:'Grows to age '+uA},
+    {l:'Shortfall',v:fmt(Math.round(shortfall)),p:Math.round(shortfall),s:'Total cost minus fund FV'},
+    {l:'Monthly Savings Needed',v:fmt(Math.round(mc)),p:Math.round(mc),s:'For '+yrs+' years'}
+  ].map(function(m){
+    return '<div class="met"><div class="ml">'+m.l+'</div><div class="mv">'+m.v+p2(m.p)+'</div><div class="ms">'+m.s+'</div></div>';
+  }).join('');
+
+  // Year-by-year tuition table
+  var chartDiv=document.getElementById('edu-chart-'+mid);
+  if(chartDiv){
+    var tblHtml='<div style="margin-top:14px;overflow-x:auto">'
+      +'<table style="width:100%;border-collapse:collapse;font-size:11px">'
+      +'<thead><tr style="background:var(--navy)">'
+      +'<th style="color:#fff;padding:7px 10px;text-align:left;border-radius:7px 0 0 7px">Year of Study</th>'
+      +'<th style="color:#fff;padding:7px 10px;text-align:left">Child Age</th>'
+      +'<th style="color:#fff;padding:7px 10px;text-align:right">Tuition Cost (Inflated)</th>'
+      +(sp?'<th style="color:#fff;padding:7px 10px;text-align:right;border-radius:0 7px 7px 0">PHP Equivalent</th>':'<th style="border-radius:0 7px 7px 0"></th>')
+      +'</tr></thead><tbody>';
+    yearlyRows.forEach(function(r,i){
+      var bg=i%2===0?'#F8FAFC':'#fff';
+      tblHtml+='<tr style="background:'+bg+'">'
+        +'<td style="padding:6px 10px;border-bottom:1px solid var(--b2);font-weight:600;color:var(--navy)">Year '+r.year+'</td>'
+        +'<td style="padding:6px 10px;border-bottom:1px solid var(--b2);color:var(--muted)">Age '+r.age+'</td>'
+        +'<td style="padding:6px 10px;border-bottom:1px solid var(--b2);text-align:right;font-weight:700;color:var(--navy)">'+fmt(r.cost)+'</td>'
+        +(sp?'<td style="padding:6px 10px;border-bottom:1px solid var(--b2);text-align:right;color:var(--php);font-size:10px">&#8369;'+Math.round(r.cost*phpR).toLocaleString('en-SG')+'</td>':'<td></td>')
+        +'</tr>';
+    });
+    // Total row
+    tblHtml+='<tr style="background:var(--gold-lt)">'
+      +'<td colspan="2" style="padding:7px 10px;font-weight:700;color:var(--navy)">TOTAL DEGREE COST</td>'
+      +'<td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--navy)">'+fmt(Math.round(totalCost))+'</td>'
+      +(sp?'<td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--php)">&#8369;'+Math.round(totalCost*phpR).toLocaleString('en-SG')+'</td>':'<td></td>')
+      +'</tr>';
+    // Existing FV row
+    tblHtml+='<tr style="background:var(--ok-bg)">'
+      +'<td colspan="2" style="padding:7px 10px;font-weight:600;color:#065F46">Existing Fund (FV at University)</td>'
+      +'<td style="padding:7px 10px;text-align:right;font-weight:700;color:#065F46">'+fmt(Math.round(exFV))+'</td>'
+      +(sp?'<td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--php)">&#8369;'+Math.round(exFV*phpR).toLocaleString('en-SG')+'</td>':'<td></td>')
+      +'</tr>';
+    // Shortfall row
+    var shColor=shortfall>0?'var(--bad-bg)':'var(--ok-bg)';
+    var shText=shortfall>0?'#991B1B':'#065F46';
+    var shLabel=shortfall>0?'SHORTFALL':'FULLY FUNDED';
+    tblHtml+='<tr style="background:'+shColor+'">'
+      +'<td colspan="2" style="padding:7px 10px;font-weight:700;color:'+shText+'">'+shLabel+'</td>'
+      +'<td style="padding:7px 10px;text-align:right;font-weight:700;color:'+shText+'">'+(shortfall>0?fmt(Math.round(shortfall)):'S$0')+'</td>'
+      +(sp?'<td style="padding:7px 10px;text-align:right;font-weight:700;color:var(--php)">'+(shortfall>0?'&#8369;'+Math.round(shortfall*phpR).toLocaleString('en-SG'):'&#8369;0')+'</td>':'<td></td>')
+      +'</tr>';
+    tblHtml+='</tbody></table></div>';
+    chartDiv.innerHTML=tblHtml;
+  }
+
+  // Update summary table if visible
+  var sumDiv=document.getElementById('edu-sum-body');
+  if(sumDiv)renderEduSummaryTable(sumDiv,members.filter(function(m){return m.type==='child';}));
+}
+
+
+function renderEduSummary(container,children){
+  var div=document.createElement('div');div.className='card';div.id='edu-summary';
+  div.innerHTML='<div class="ch"><div class="chb"></div><h3>Education Summary &mdash; All Children</h3></div><div id="edu-sum-body"></div>';
+  container.appendChild(div);
+  setTimeout(function(){renderEduSummaryTable(document.getElementById('edu-sum-body'),children);},100);
+}
+
+function renderEduSummaryTable(container,children){
+  var rows='';var totMonthly=0,totLump=0,totEx=0,totShort=0;
+  children.forEach(function(child){
+    var ed=eduData[child.id];if(!ed||!ed.lump)return;
+    totMonthly+=ed.monthlyC||0;totLump+=ed.lump||0;totEx+=ed.exFV||0;totShort+=ed.shortfall||0;
+    rows+='<tr><td>'+escH(child.name)+(child.age?' ('+child.age+')':'')+'</td>'
+      +'<td>'+fmt(Math.round(ed.lump))+'</td>'
+      +'<td>'+fmt(Math.round(ed.exFV||0))+'</td>'
+      +'<td>'+fmt(Math.round(ed.shortfall||0))+'</td>'
+      +'<td>'+fmt(Math.round(ed.monthlyC||0))+'/mo</td></tr>';
+  });
+  rows+='<tr class="total-row"><td><strong>Total</strong></td>'
+    +'<td><strong>'+fmt(Math.round(totLump))+'</strong></td>'
+    +'<td><strong>'+fmt(Math.round(totEx))+'</strong></td>'
+    +'<td><strong>'+fmt(Math.round(totShort))+'</strong></td>'
+    +'<td><strong>'+fmt(Math.round(totMonthly))+'/mo</strong></td></tr>';
+  container.innerHTML='<table class="edu-summary-tbl">'
+    +'<thead><tr><th>Child</th><th>Lump Sum Needed</th><th>Existing Fund FV</th><th>Shortfall</th><th>Monthly Savings</th></tr></thead>'
+    +'<tbody>'+rows+'</tbody></table>';
+}
+
+// ── REPORT PREVIEW
+function refreshReport(){
+  var client=document.getElementById('clientName').value||'Client';
+  var inc=getN('annualIncome');var dm=getMul();
+  var html='<div class="card" style="margin-top:12px"><div class="ch"><div class="chb"></div><h3>Coverage Assessment — '+escH(client)+'</h3></div><div>';
+  members.forEach(function(m){
+    var ic=m.type==='child';var mul=ic?3:dm;
+    var needs=ic?{death:inc*3,td:inc*3,ci:inc*3,hosp:500000,acc:15000}:{death:inc*mul,td:inc*mul,ci:inc*5,hosp:500000,acc:15000};
+    var have=getCoverageForMember(m.id);
+    html+='<div style="font-size:11px;font-weight:700;color:var(--navy);margin:10px 0 4px;padding-bottom:4px;border-bottom:1px solid var(--b2)">'+escH(memberLabel(m))+'</div>';
+    [{k:'death',l:'Death'},{k:'td',l:'Total Disability'},{k:'ci',l:'Early CI'},{k:'hosp',l:'Hospitalisation'},{k:'acc',l:'Accident'}].forEach(function(c){
+      var pct=needs[c.k]>0?have[c.k]/needs[c.k]:1;var gap=Math.max(0,needs[c.k]-have[c.k]);
+      var cls=pct>=1?'ok':pct>=0.5?'warn':'bad';var lbl=pct>=1?'Adequate':pct>=0.5?'Partial':'Shortfall';
+      html+='<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--b2)">'
+        +'<div style="width:7px;height:7px;border-radius:50%;background:var(--'+cls+');flex-shrink:0;margin-top:3px"></div>'
+        +'<div style="font-size:11px;color:var(--muted)"><strong style="color:var(--navy)">'+c.l+'</strong> — '+lbl+(gap>0?'<br>Gap: <strong>'+fmtK(gap)+'</strong>':'')+'</div></div>';
+    });
+  });
+  html+='</div></div>';
+  document.getElementById('reportPreview').innerHTML=html;
+}
+
+// ── TAB NAVIGATION ────────────────────────────────────────────────────────────
+function showTab(t){
+  ['policies','gap','retirement','education','report'].forEach(function(id){
+    document.getElementById('tab-'+id).classList.toggle('off',id!==t);
+    document.getElementById('t-'+id).classList.toggle('on',id===t);
+  });
+  curTab=t;
+  if(t==='gap'){setTimeout(function(){renderGapMemberPills();renderGapForMember(activeGapMId);},80);}
+  else if(t==='retirement')setTimeout(calcRet,80);
+  else if(t==='education')setTimeout(renderEducationTab,80);
+  else if(t==='report')setTimeout(refreshReport,80);
+}
+
+// ── PDF ───────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// SHARED PDF HELPERS
+// ─────────────────────────────────────────────────────────────────────────────
+function _pdfInit(orientation){
+  var jsPDF=window.jspdf.jsPDF;
+  var doc=new jsPDF({orientation:orientation||'landscape',unit:'mm',format:'a4'});
+  return doc;
+}
+
+function _pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M){
+  doc.setFillColor(235,244,255);doc.rect(0,0,PW,20,'F');
+  doc.setDrawColor(191,219,254);doc.setLineWidth(0.3);doc.line(0,20,PW,20);
+  doc.setFillColor(13,27,62);doc.roundedRect(M,3,14,14,2,2,'F');
+  doc.addImage(LOGO,'JPEG',M,3,14,14);
+  doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(122,96,14);
+  doc.text('SP AD ASTRA',M+17,9);
+  doc.setFontSize(12);doc.setTextColor(13,27,62);doc.text('Portfolio Summary',M+17,16);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(100,116,139);
+  doc.text('Pamela Rose Quinto  |  Financial Services Consultant  |  AIA Singapore',PW-M,8,{align:'right'});
+  doc.text('+65 8874 1775  |  pamquinto@aia.com.sg  |  '+today,PW-M,16,{align:'right'});
+  doc.setFillColor(13,27,62);doc.roundedRect(M,22,PW-M*2,9,1.5,1.5,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(255,255,255);
+  doc.text(client,M+4,28.5);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(191,219,254);
+  doc.text(stLbl+(inc>0?'  |  Income: '+fmt(inc):'')+(sp?'  |  1SGD='+phpR+'PHP':''),PW-M-4,28.5,{align:'right'});
+  return 35;
+}
+
+function _pdfSecTitle(doc,txt,y,M,PW){
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,9,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(13,27,62);
+  doc.text(txt.toUpperCase(),M+6,y+6.5);
+  doc.setDrawColor(210,210,210);doc.setLineWidth(0.2);
+  doc.line(M+6+txt.length*1.8,y+5,PW-M,y+5);
+  return y+13;
+}
+
+function _pdfFooter(doc,pg,PW,PH,M){
+  doc.setDrawColor(210,210,210);doc.setLineWidth(0.2);doc.line(M,PH-9,PW-M,PH-9);
+  doc.setFont('helvetica','normal');doc.setFontSize(5.5);doc.setTextColor(148,163,184);
+  doc.text('For illustration only. Not a contract of insurance. AIA Singapore Pte. Ltd. Reg. No. 201106386R',M,PH-5);
+  doc.setFontSize(6);doc.text('Page '+pg,PW-M,PH-5,{align:'right'});
+}
+
+function _pdfPersonBanner(doc,m,y,M,CW,stLbl,inc,sp,phpR,PW){
+  var nm=m.type==='primary'?'Primary'+(m.name?' \u2014 '+m.name:''):m.type==='spouse'?'Spouse \u2014 '+(m.name||''):(m.name||'Child')+(m.age?', Age '+m.age:'');
+  var bc=m.type==='primary'?[13,27,62]:m.type==='spouse'?[30,58,138]:[3,105,161];
+  doc.setFillColor(bc[0],bc[1],bc[2]);doc.roundedRect(M,y,CW,9,1.5,1.5,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(255,255,255);
+  doc.text(nm,M+4,y+6.5);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(191,219,254);
+  doc.text(stLbl+(inc>0?'  |  '+fmt(inc):'')+(sp?'  |  1SGD='+phpR+'PHP':''),PW-M-4,y+6.5,{align:'right'});
+  return y+12;
+}
+
+// Compact policy table — returns new y
+// Compact policy table — auto-adjusts row height, no overflow
+function _pdfPolicyTable(doc,m,y,M,CW,PH,sp,phpK2,newPageFn){
+  var pols=getPols(m.id);
+  if(!pols.length){
+    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(148,163,184);
+    doc.text('No policies recorded for this person.',M+2,y+6);return y+12;
+  }
+
+  // 9 columns — matches portfolio-summary.html layout
+  // Policy Name | Policy No. | Plan Type | Benefits | Sum Assured | Policy Value | Policy Information | Premium | Annual
+  // Total = 273mm (CW for M=12: 297-24=273)
+  var cW=[34,26,22,38,24,22,72,16,19];
+  var cN=['Policy Name','Policy No.','Plan Type','Benefits','Sum Assured','Policy Value','Policy information','Premium','Annual'];
+  var cAlign=['left','left','left','left','right','right','left','right','right'];
+
+  function drawHeader(yy){
+    var hH=9;
+    doc.setFillColor(38,128,235);doc.rect(M,yy,CW,hH,'F');
+    doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(255,255,255);
+    var tx=M;
+    cN.forEach(function(h,i){
+      var ax=cAlign[i]==='right'?tx+cW[i]-2:tx+1.5;
+      doc.text(h,ax,yy+6,{align:cAlign[i]});
+      if(i<cN.length-1){
+        doc.setDrawColor(40,80,160);doc.setLineWidth(0.2);
+        doc.line(tx+cW[i],yy+1,tx+cW[i],yy+hH-1);
+      }
+      tx+=cW[i];
+    });
+    return yy+hH;
+  }
+
+  y=drawHeader(y);
+
+  var mo=0,an=0;
+  var benRowH=sp?10:6.5;
+
+  pols.forEach(function(p,ri){
+    var bens=p.benefits&&p.benefits.length?p.benefits:[{type:'\u2014',sa:0}];
+    var info=p.info||[];
+
+    // Pre-calc row height: max of benefits height vs info bullets height
+    var benH=bens.length*benRowH+4;
+    var infoLines=0;
+    info.forEach(function(b){
+      var lines=doc.splitTextToSize('\u2022 '+b,cW[6]-4);
+      infoLines+=lines.length;
+    });
+    if(!info.length) infoLines=1; // "No commentary"
+    var infoH=infoLines*3.8+4;
+    var rowH=Math.max(14,benH,infoH);
+
+    // Page overflow check
+    if(y+rowH>PH-20){
+      _pdfFooter(doc,null,CW+M*2,PH,M);
+      y=newPageFn(doc,m);
+      y=drawHeader(y);
+    }
+
+    // Row background
+    doc.setFillColor(ri%2===0?248:255,ri%2===0?248:255,ri%2===0?248:255);
+    doc.rect(M,y,CW,rowH,'F');
+
+    var cy=y+Math.min(6,rowH/2+1);
+    var tx=M;
+
+    // ── Col 0: Policy Name ──
+    doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(13,27,62);
+    var pnL=doc.splitTextToSize(p.name||'',cW[0]-3);
+    doc.text(pnL.slice(0,2),tx+1.5,cy);
+    tx+=cW[0];
+
+    // ── Col 1: Policy No. + date ──
+    doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(70,70,70);
+    doc.text(p.no||'',tx+1.5,cy-1);
+    if(p.inception){
+      var d2=new Date(p.inception);
+      var ds=isNaN(d2.getTime())?p.inception:d2.toLocaleDateString('en-SG',{day:'2-digit',month:'short',year:'numeric'});
+      doc.setFontSize(5.5);doc.setTextColor(130,130,130);
+      doc.text(ds,tx+1.5,cy+3);
+    }
+    tx+=cW[1];
+
+    // ── Col 2: Plan Type ──
+    doc.setFontSize(6.5);doc.setTextColor(60,60,60);
+    var ptL=doc.splitTextToSize(p.type||'',cW[2]-2);
+    doc.text(ptL[0]||'',tx+1.5,cy);
+    tx+=cW[2];
+
+    // ── Col 3+4: Benefits + Sum Assured ──
+    var bX=tx;
+    var saX=bX+cW[3];
+    bens.forEach(function(b,bi){
+      var by=y+2+bi*benRowH;
+      if(bens.length>1){
+        doc.setFillColor(bi%2===0?242:248,bi%2===0?245:250,bi%2===0?250:253);
+        doc.rect(bX,by,cW[3]+cW[4],benRowH-0.5,'F');
+      }
+      doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(40,40,40);
+      doc.text(doc.splitTextToSize((b.type||'\u2014'),cW[3]-3)[0],bX+2,by+4);
+      if(b.sa>0){
+        doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(13,27,62);
+        doc.text('S$'+Math.round(b.sa).toLocaleString('en-SG'),saX+cW[4]-2,by+4,{align:'right'});
+        if(sp){
+          doc.setFont('helvetica','normal');doc.setFontSize(5.5);doc.setTextColor(21,128,61);
+          doc.text('P'+Math.round(b.sa*getPHPRate()).toLocaleString('en-SG'),saX+cW[4]-2,by+7.5,{align:'right'});
+        }
+      } else {
+        doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);
+        doc.text('\u2014',saX+cW[4]/2,by+4,{align:'center'});
+      }
+    });
+    tx+=cW[3]+cW[4];
+
+    // ── Col 5: Policy Value ──
+    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(30,41,59);
+    doc.text(p.pv>0?('S$'+Math.round(p.pv).toLocaleString('en-SG')):'Not applicable',tx+cW[5]-2,cy,{align:'right'});
+    if(sp&&p.pv>0){
+      doc.setFontSize(5.5);doc.setTextColor(21,128,61);
+      doc.text('P'+Math.round(p.pv*getPHPRate()).toLocaleString('en-SG'),tx+cW[5]-2,cy+3.5,{align:'right'});
+    }
+    tx+=cW[5];
+
+    // ── Col 6: Policy Information (bullets) ──
+    var iY=y+3.5;
+    if(info.length){
+      info.forEach(function(b){
+        var lines=doc.splitTextToSize('\u2022 '+b,cW[6]-4);
+        doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(30,41,59);
+        lines.forEach(function(ln){
+          doc.text(ln,tx+2,iY);
+          iY+=3.5;
+        });
+      });
+    } else {
+      doc.setFont('helvetica','italic');doc.setFontSize(7);doc.setTextColor(148,163,184);
+      doc.text('No commentary provided.',tx+2,cy);
+    }
+    tx+=cW[6];
+
+    // ── Col 7+8: Premium + Annual ──
+    if(p.prem>0){
+      var modeAbbr={Monthly:'mo',Quarterly:'qtr','Semi-Annual':'semi-ann',Annual:'yr','Single Premium':'single'};
+      var moAbbr=modeAbbr[p.mode]||p.mode;
+      var annualEq=0;
+      if(p.mode==='Monthly')annualEq=p.prem*12;
+      else if(p.mode==='Quarterly')annualEq=p.prem*4;
+      else if(p.mode==='Semi-Annual')annualEq=p.prem*2;
+      else if(p.mode==='Annual')annualEq=p.prem;
+      else annualEq=p.prem;
+      doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(13,27,62);
+      doc.text('S$'+Math.round(p.prem).toLocaleString('en-SG')+'/'+moAbbr,tx+cW[7]-2,cy,{align:'right'});
+      doc.text(annualEq>0?('S$'+Math.round(annualEq).toLocaleString('en-SG')+'/yr'):'\u2014',tx+cW[7]+cW[8]-2,cy,{align:'right'});
+    }
+
+    // Column dividers + row border
+    var divX=M;
+    doc.setDrawColor(220,215,200);doc.setLineWidth(0.15);
+    for(var ci=0;ci<cW.length-1;ci++){divX+=cW[ci];doc.line(divX,y,divX,y+rowH);}
+    doc.setDrawColor(210,205,190);doc.setLineWidth(0.25);doc.line(M,y+rowH,M+CW,y+rowH);
+
+    // Totals
+    if(p.mode==='Monthly'){mo+=p.prem;an+=p.prem*12;}
+    else if(p.mode==='Quarterly'){mo+=p.prem/3;an+=p.prem*4;}
+    else if(p.mode==='Semi-Annual'){mo+=p.prem/6;an+=p.prem*2;}
+    else if(p.mode==='Annual'){mo+=p.prem/12;an+=p.prem;}
+    y+=rowH;
+  });
+
+  // Three-zone premium strip
+  var stripH=14;
+  doc.setFillColor(250,247,237);doc.setDrawColor(201,168,76);doc.setLineWidth(0.6);
+  doc.roundedRect(M,y,CW,stripH,2,2,'FD');
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,stripH,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(201,168,76);
+  doc.text('TOTAL PREMIUM',M+8,y+8);
+  doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(100,116,139);
+  doc.text('across all policies',M+8,y+11.5);
+  var centerX=M+CW/2;
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(100,116,139);
+  doc.text('MONTHLY',centerX-32,y+5.5,{align:'center'});
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(13,27,62);
+  doc.text('S$'+Math.round(mo).toLocaleString('en-SG'),centerX-32,y+11.5,{align:'center'});
+  doc.setFillColor(201,168,76);doc.circle(centerX,y+stripH/2,0.8,'F');
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(100,116,139);
+  doc.text('ANNUALISED',centerX+32,y+5.5,{align:'center'});
+  doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(13,27,62);
+  doc.text('S$'+Math.round(an).toLocaleString('en-SG'),centerX+32,y+11.5,{align:'center'});
+  if(sp){
+    var phpR2=getPHPRate();var sym2=phpOn?'P':'';
+    doc.setFont('helvetica','bold');doc.setFontSize(6.5);doc.setTextColor(21,128,61);
+    doc.text('PHP EQUIVALENT',M+CW-5,y+5.5,{align:'right'});
+    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(21,128,61);
+    doc.text(sym2+Math.round(mo*phpR2).toLocaleString('en-SG')+' / mo',M+CW-5,y+9,{align:'right'});
+    doc.text(sym2+Math.round(an*phpR2).toLocaleString('en-SG')+' / yr',M+CW-5,y+12,{align:'right'});
+  }
+  return y+stripH+4;
+}
+
+
+function _pdfGapBoxes(doc,m,y,M,CW,inc,dm2,sp,phpK2,retD,eduD){
+  var isChild=(m.type==='child');
+  var needs=isChild?{death:inc*3,td:inc*3,ci:inc*3,hosp:500000,acc:15000}:{death:inc*dm2,td:inc*dm2,ci:inc*5,hosp:500000,acc:15000};
+  var have=getCoverageForMember(m.id);
+  var cats=[
+    {k:'death',l:'Death Cover'},
+    {k:'td',l:'Total Disability'},
+    {k:'ci',l:'Early Critical Illness'},
+    {k:'hosp',l:'Hospitalisation'},
+    {k:'acc',l:'Personal Accident'}
+  ];
+  var numCols=6;
+  var bW=(CW-5)/numCols; // box width with 1mm gaps
+  var bH=42;
+  // 5 coverage boxes
+  cats.forEach(function(c,i){
+    var hv=have[c.k]||0,nd=needs[c.k]||0;
+    var pct=nd>0?hv/nd:1;
+    var ok=pct>=1;
+    var fb=ok?[236,253,245]:[254,242,242];
+    var db=ok?[110,231,183]:[252,165,165];
+    var tc=ok?[6,95,70]:[153,27,27];
+    var gap=Math.max(0,nd-hv);
+    doc.setFillColor(fb[0],fb[1],fb[2]);doc.setDrawColor(db[0],db[1],db[2]);doc.setLineWidth(0.5);
+    doc.roundedRect(M+i*(bW+1),y,bW,bH,2,2,'FD');
+    doc.setFont('helvetica','bold');doc.setFontSize(6);doc.setTextColor(tc[0],tc[1],tc[2]);
+    var lLines=doc.splitTextToSize(c.l.toUpperCase(),bW-3);
+    doc.text(lLines[0],M+i*(bW+1)+2,y+5.5);
+    if(lLines[1])doc.text(lLines[1],M+i*(bW+1)+2,y+9);
+    doc.setFontSize(10);
+    var vY=lLines[1]?y+15:y+13;
+    doc.text(fmtK(hv),M+i*(bW+1)+2,vY);
+    doc.setFont('helvetica','normal');doc.setFontSize(6.5);
+    doc.text('Need: '+fmtK(nd),M+i*(bW+1)+2,vY+7);
+    if(gap>0){doc.setFont('helvetica','bold');doc.text('Gap: '+fmtK(gap),M+i*(bW+1)+2,vY+13);}
+    doc.setFontSize(7);
+    doc.text(ok?'\u2714 Adequate':'\u2717 Shortfall',M+i*(bW+1)+2,y+bH-4);
+  });
+  // 6th box: Retirement (adult) or Education (child)
+  var i6=5;var x6=M+i6*(bW+1);
+  if(!isChild&&retD&&retD.amount>0){
+    var rGap=retD.shortfall||0;var ok2=rGap<0.01;
+    var fb2=ok2?[236,253,245]:[254,242,242];var db2=ok2?[110,231,183]:[252,165,165];var tc2=ok2?[6,95,70]:[153,27,27];
+    doc.setFillColor(fb2[0],fb2[1],fb2[2]);doc.setDrawColor(db2[0],db2[1],db2[2]);doc.setLineWidth(0.5);
+    doc.roundedRect(x6,y,bW,bH,2,2,'FD');
+    doc.setFont('helvetica','bold');doc.setFontSize(6);doc.setTextColor(tc2[0],tc2[1],tc2[2]);
+    doc.text('RETIREMENT GOAL',x6+2,y+5.5);
+    doc.setFontSize(10);doc.text(fmtK(retD.existFV||0),x6+2,y+13);
+    doc.setFont('helvetica','normal');doc.setFontSize(6.5);
+    doc.text('Need: '+fmtK(retD.amount),x6+2,y+20);
+    if(rGap>0){doc.setFont('helvetica','bold');doc.text('Gap: '+fmtK(rGap),x6+2,y+26);}
+    if(retD.monthlyC>0){doc.setFontSize(6);doc.text('Save '+fmt(Math.round(retD.monthlyC))+'/mo',x6+2,y+31);}
+    doc.setFontSize(7);doc.text(ok2?'\u2714 On Track':'\u2717 Shortfall',x6+2,y+bH-4);
+  } else if(eduD&&eduD.lump>0){
+    var eGap=eduD.shortfall||0;var eo=eGap<0.01;
+    var efb=eo?[236,253,245]:[254,242,242];var edb=eo?[110,231,183]:[252,165,165];var etc2=eo?[6,95,70]:[153,27,27];
+    doc.setFillColor(efb[0],efb[1],efb[2]);doc.setDrawColor(edb[0],edb[1],edb[2]);doc.setLineWidth(0.5);
+    doc.roundedRect(x6,y,bW,bH,2,2,'FD');
+    doc.setFont('helvetica','bold');doc.setFontSize(6);doc.setTextColor(etc2[0],etc2[1],etc2[2]);
+    doc.text('EDUCATION GOAL',x6+2,y+5.5);
+    doc.setFontSize(10);doc.text(fmtK(eduD.exFV||0),x6+2,y+13);
+    doc.setFont('helvetica','normal');doc.setFontSize(6.5);
+    doc.text('Need: '+fmtK(eduD.lump),x6+2,y+20);
+    if(eGap>0){doc.setFont('helvetica','bold');doc.text('Gap: '+fmtK(eGap),x6+2,y+26);}
+    if(eduD.monthlyC>0){doc.setFontSize(6);doc.text('Save '+fmt(Math.round(eduD.monthlyC))+'/mo',x6+2,y+31);}
+    doc.setFontSize(7);doc.text(eo?'\u2714 On Track':'\u2717 Shortfall',x6+2,y+bH-4);
+  } else {
+    // empty placeholder
+    doc.setFillColor(245,245,245);doc.setDrawColor(210,210,210);doc.setLineWidth(0.4);
+    doc.roundedRect(x6,y,bW,bH,2,2,'FD');
+    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(180,180,180);
+    doc.text('No goal\ndata',x6+2,y+bH/2);
+  }
+  return y+bH+6;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COMPREHENSIVE PDF
+// ─────────────────────────────────────────────────────────────────────────────
+function generatePDF(){
+  try{
+  // Pre-compute all data
+  calcRet();
+  members.filter(function(m){return m.type==='child';}).forEach(function(c){
+    if(!eduData[c.id]||!eduData[c.id].lump){
+      if(!document.getElementById('ea-'+c.id))renderEducationTab();
+    }
+  });
+  setTimeout(function(){_generatePDFCore();},150);
+  }catch(e){console.error(e);alert('PDF Error: '+e.message);}
+}
+
+function _generatePDFCore(){
+  try{
+  var doc=_pdfInit('landscape');
+  var PW=297,PH=210,M=12,CW=PW-M*2;
+  var client=document.getElementById('clientName').value||'Client';
+  var today=new Date().toLocaleDateString('en-SG',{day:'2-digit',month:'long',year:'numeric'});
+  var inc=getN('annualIncome');
+  var stEl=document.getElementById('clientStatus');
+  var stLbl=stEl.options[stEl.selectedIndex].text;
+  var sp=phpOn;var phpR=getPHPRate();
+  var dm2=getMul();
+  var allPols=[];members.forEach(function(m){allPols=allPols.concat(getPols(m.id));});
+  function phpK2(n){if(!sp||!n)return '';var v=n*phpR;return v>=1e6?'P'+(v/1e6).toFixed(1)+'M':v>=1e3?'P'+Math.round(v/1e3)+'K':'P'+Math.round(v);}
+  var pg=0;
+  function newPage(){pg++;if(pg>1)doc.addPage();
+    var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);return y;}
+
+  // ── Per-person: Policy table + Gap boxes ──
+  members.forEach(function(m){
+    var mPols=getPols(m.id);
+    var y=newPage();
+    y=_pdfPersonBanner(doc,m,y,M,CW,stLbl,inc,sp,phpR,PW);
+    y=_pdfSecTitle(doc,'Policy Portfolio',y,M,PW);
+    y=_pdfPolicyTable(doc,m,y,M,CW,PH,sp,phpK2,function(d,mm){
+      _pdfFooter(d,pg,PW,PH,M);pg++;d.addPage();
+      var ny=_pdfPageHdr(d,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+      ny=_pdfPersonBanner(d,mm,ny,M,CW,stLbl,inc,sp,phpR,PW);
+      ny=_pdfSecTitle(d,'Policy Portfolio (cont.)',ny,M,PW);
+      return ny;
+    });
+    // Gap boxes
+    if(y+60<PH-12){
+      y=_pdfSecTitle(doc,'Coverage Gap Analysis',y,M,PW);
+      // For non-children: collect all children's education data combined
+    var eduForGap=eduData[m.id];
+    if(m.type!=='child'){
+      var childEdu={total:0,exFV:0,shortfall:0,monthlyC:0,lump:0};
+      members.filter(function(ch){return ch.type==='child';}).forEach(function(ch){
+        var ed=eduData[ch.id];
+        if(ed&&ed.total>0){
+          childEdu.total+=ed.total||0;
+          childEdu.exFV+=ed.exFV||0;
+          childEdu.shortfall+=ed.shortfall||0;
+          childEdu.monthlyC+=ed.monthlyC||0;
+          childEdu.lump+=ed.total||0;
+        }
+      });
+      if(childEdu.total>0) eduForGap=childEdu;
+    }
+    y=_pdfGapBoxes(doc,m,y,M,CW,inc,dm2,sp,phpK2,retData,eduForGap);
+    } else {
+      _pdfFooter(doc,pg,PW,PH,M);pg++;doc.addPage();
+      y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+      y=_pdfPersonBanner(doc,m,y,M,CW,stLbl,inc,sp,phpR,PW);
+      y=_pdfSecTitle(doc,'Coverage Gap Analysis',y,M,PW);
+      y=_pdfGapBoxes(doc,m,y,M,CW,inc,dm2,sp,phpK2,retData,eduData[m.id]);
+    }
+    _pdfFooter(doc,pg,PW,PH,M);
+  });
+
+  // ── Retirement page ──
+  var hasRet=allPols.some(function(p){return ['Retirement','Investment','Endowment'].indexOf(p.type)>=0;})||getN('r_existing')>0||inc>0;
+  if(hasRet&&retData.amount>0){
+    pg++;doc.addPage();
+    var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+    y=_pdfSecTitle(doc,'Retirement Planning — Growing Annuity PV Formula',y,M,PW);
+    var rD=retData;
+    var age2=parseInt(document.getElementById('r_age').value)||35;
+    var rA=parseInt(document.getElementById('r_ret_age').value)||60;
+    var lE=parseInt(document.getElementById('r_life').value)||85;
+    var g2=parseFloat(document.getElementById('r_inf').value)/100||0.04;
+    var r2=parseFloat(document.getElementById('r_ret_rate').value)/100||0.06;
+    var yA2=rA-age2;
+    doc.setFillColor(254,243,199);doc.setDrawColor(201,168,76);doc.setLineWidth(0.4);
+    doc.roundedRect(M,y,CW,12,2,2,'FD');
+    doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(120,92,14);
+    doc.text('Formula: Corpus = PMT x [1-((1+g)/(1+r))^n] / (r-g)   |   g='+(g2*100).toFixed(1)+'%  r='+(r2*100).toFixed(1)+'%  n='+(lE-rA)+' yrs  Accum='+yA2+' yrs',M+4,y+8);
+    y+=16;
+    var rmW=CW/3;
+    var rMs=[
+      ['Monthly at Retirement',fmt(Math.round(rD.amount>0?getN('r_income')*12*Math.pow(1+g2,yA2)/12:0)),'Inflated amount'],
+      ['Total Amount Required',fmtK(rD.amount)+(sp?' ('+phpK2(rD.amount)+')':''),'Growing Annuity PV'],
+      ['Existing Policy FV',fmtK(rD.existFV)+(sp?' ('+phpK2(rD.existFV)+')':''),'At retirement'],
+      ['Additional Needed',fmtK(rD.shortfall)+(sp?' ('+phpK2(rD.shortfall)+')':''),'After existing'],
+      ['Monthly Savings',fmt(Math.round(rD.monthlyC))+(sp?' ('+phpK2(rD.monthlyC)+')':''),'For '+yA2+' years'],
+      ['Drawdown Period',(lE-rA)+' years','Ages '+rA+' to '+lE]
+    ];
+    rMs.forEach(function(r,i){
+      var col=i%3,row=Math.floor(i/3);
+      doc.setFillColor(240,244,248);doc.roundedRect(M+col*rmW,y+row*16,rmW-2,13,1.5,1.5,'F');
+      doc.setFont('helvetica','bold');doc.setFontSize(6);doc.setTextColor(100,116,139);
+      doc.text(r[0].toUpperCase(),M+col*rmW+3,y+row*16+5);
+      doc.setFontSize(8);doc.setTextColor(13,27,62);doc.text(r[1],M+col*rmW+3,y+row*16+10.5);
+    });
+    y+=2*16+6;
+    if(retCh&&y+50<PH-12){doc.addImage(retCh.canvas.toDataURL('image/png'),'PNG',M,y,CW,50);y+=54;}
+    _pdfFooter(doc,pg,PW,PH,M);
+  }
+
+  // ── Education pages ──
+  members.filter(function(m){return m.type==='child'&&eduData[m.id]&&eduData[m.id].lump>0;}).forEach(function(child){
+    pg++;doc.addPage();
+    var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+    var ed=eduData[child.id];
+    y=_pdfSecTitle(doc,'Education Fund — '+(child.name||'Child')+(child.age?' (Age '+child.age+')':''),y,M,PW);
+    var emW=CW/4;
+    var eMs=[
+      ['Child',ed.name||child.name||'Child',''],
+      ['Yrs to University',(( ed.uni||18)-(ed.age||child.age||3))+' yrs',''],
+      ['Total Education Cost',fmtK(Math.round(ed.total||0))+(sp?' ('+phpK2(ed.total||0)+')':''),((ed.dur||4)+'-year degree')],
+      ['Lump Sum Needed',fmtK(Math.round(ed.lump))+(sp?' ('+phpK2(ed.lump)+')':''),'Present value'],
+      ['Existing Policy FV',fmtK(Math.round(ed.exFV||0))+(sp?' ('+phpK2(ed.exFV||0)+')':''),'At university age'],
+      ['Shortfall',fmtK(Math.round(ed.shortfall||0))+(sp?' ('+phpK2(ed.shortfall||0)+')':''),'After existing'],
+      ['Monthly Savings',fmt(Math.round(ed.monthlyC||0))+(sp?' ('+phpK2(ed.monthlyC||0)+')':''),'For '+(( ed.uni||18)-(ed.age||child.age||3))+' years'],
+      ['Fund Return',(ed.ret||5).toFixed(1)+'% p.a.','Assumed']
+    ];
+    eMs.forEach(function(r,i){
+      var col=i%4,row=Math.floor(i/4);
+      doc.setFillColor(240,244,248);doc.roundedRect(M+col*emW,y+row*16,emW-2,13,1.5,1.5,'F');
+      doc.setFont('helvetica','bold');doc.setFontSize(6);doc.setTextColor(100,116,139);
+      doc.text(r[0].toUpperCase(),M+col*emW+3,y+row*16+5);
+      doc.setFontSize(8);doc.setTextColor(13,27,62);doc.text(r[1],M+col*emW+3,y+row*16+10.5);
+    });
+    y+=2*16+6;
+    if(eduCharts[child.id]&&y+48<PH-12){doc.addImage(eduCharts[child.id].canvas.toDataURL('image/png'),'PNG',M,y,CW,48);y+=52;}
+    _pdfFooter(doc,pg,PW,PH,M);
+  });
+
+  // ── Advisor Notes + Next Steps (last page) ──
+  pg++;doc.addPage();
+  var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+  y=_pdfSecTitle(doc,"Advisor's Recommendations",y,M,PW);
+  var notes=document.getElementById('advNotes').value||'No advisor notes.';
+  doc.setFillColor(248,250,252);doc.setDrawColor(201,168,76);doc.setLineWidth(0.4);
+  doc.roundedRect(M,y,CW,38,2,2,'FD');
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(71,85,105);
+  doc.text(doc.splitTextToSize(notes,CW-8).slice(0,6),M+4,y+8);
+  y+=44;
+  y=_pdfSecTitle(doc,'Next Steps',y,M,PW);
+  ['Review this portfolio summary and confirm all data with your advisor.',
+   'Prioritise coverage gaps \u2014 protect income first, then invest for future goals.',
+   'Set up automated savings aligned to retirement and education targets.',
+   'Schedule an annual review or after any major life event.'].forEach(function(s,i){
+    doc.setFillColor(248,250,252);doc.roundedRect(M,y,CW,9,1.5,1.5,'F');
+    doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(201,168,76);
+    doc.text((i+1)+'.',M+3,y+6);
+    doc.setFont('helvetica','normal');doc.setTextColor(30,41,59);
+    doc.text(s,M+8,y+6);y+=11;
+  });
+  y+=4;
+  doc.setFillColor(254,243,199);doc.setDrawColor(201,168,76);doc.setLineWidth(0.4);
+  doc.roundedRect(M,y,CW,13,2,2,'FD');
+  doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(120,92,14);
+  doc.text(doc.splitTextToSize('Prepared by Pamela Rose Quinto, Financial Services Consultant, AIA Singapore Pte. Ltd. (Reg. No. 201106386R). All projections illustrative only. Not a contract of insurance. Queries: +65 8874 1775 | pamquinto@aia.com.sg',CW-8),M+4,y+5);
+  _pdfFooter(doc,pg,PW,PH,M);
+
+  doc.save('SP-AdAstra_'+client.replace(/\s+/g,'_')+'_Comprehensive.pdf');
+  showToast('\u2713 Comprehensive PDF ready!');
+  }catch(e){console.error('Comprehensive PDF error:',e);alert('Error: '+e.message);}
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SIMPLIFIED PDF  (auto-overflow to new page if needed)
+// ─────────────────────────────────────────────────────────────────────────────
+function generateSimplifiedPDF(){
+  try{
+  calcRet();
+  var doc=_pdfInit('landscape');
+  var PW=297,PH=210,M=12,CW=PW-M*2;
+  var client=document.getElementById('clientName').value||'Client';
+  var today=new Date().toLocaleDateString('en-SG',{day:'2-digit',month:'long',year:'numeric'});
+  var inc=getN('annualIncome');
+  var stEl=document.getElementById('clientStatus');
+  var stLbl=stEl.options[stEl.selectedIndex].text;
+  var sp=phpOn;var phpR=getPHPRate();
+  var dm2=getMul();
+  function phpK2(n){if(!sp||!n)return '';var v=n*phpR;return v>=1e6?'P'+(v/1e6).toFixed(1)+'M':v>=1e3?'P'+Math.round(v/1e3)+'K':'P'+Math.round(v);}
+  var pg=0;
+
+  members.forEach(function(m){
+    var mPols=getPols(m.id);
+    if(m.type!=='primary'&&!mPols.length)return;
+    // Page 1: header + banner + policy table
+    pg++;if(pg>1)doc.addPage();
+    var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+    y=_pdfPersonBanner(doc,m,y,M,CW,stLbl,inc,sp,phpR,PW);
+    y=_pdfSecTitle(doc,'Policy Portfolio',y,M,PW);
+    y=_pdfPolicyTable(doc,m,y,M,CW,PH,sp,phpK2,function(d2,mm){
+      _pdfFooter(d2,pg,PW,PH,M);pg++;d2.addPage();
+      var ny=_pdfPageHdr(d2,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+      ny=_pdfPersonBanner(d2,mm,ny,M,CW,stLbl,inc,sp,phpR,PW);
+      ny=_pdfSecTitle(d2,'Policy Portfolio (cont.)',ny,M,PW);
+      return ny;
+    });
+    // Gap section — fits on current page or new page
+    var gapNeeded=55;
+    if(y+gapNeeded>PH-12){
+      _pdfFooter(doc,pg,PW,PH,M);pg++;doc.addPage();
+      y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+      y=_pdfPersonBanner(doc,m,y,M,CW,stLbl,inc,sp,phpR,PW);
+    }
+    if(inc>0){
+      y=_pdfSecTitle(doc,'Coverage Gap Analysis',y,M,PW);
+      y=_pdfGapBoxes(doc,m,y,M,CW,inc,dm2,sp,phpK2,retData,eduData[m.id]);
+    }
+    _pdfFooter(doc,pg,PW,PH,M);
+  });
+
+  // Shortfall chart page
+  if(inc>0){
+    pg++;doc.addPage();
+    addShortfallPage(doc,client,today,stLbl,inc,sp,phpR,pg,PW,PH,M,CW);
+  }
+  // Advisor notes + next steps + disclosure (always last page)
+  pg++;doc.addPage();
+  addNotesPage(doc,client,today,stLbl,inc,sp,phpR,pg,PW,PH,M,CW);
+  if(pg===0){alert('No members found. Please add policies first.');return;}
+  doc.save('SP-AdAstra_'+client.replace(/\s+/g,'_')+'_Simplified.pdf');
+  showToast('\u2713 Simplified PDF ready!');
+  }catch(e){console.error('Simplified PDF error:',e);alert('Simplified PDF Error: '+e.message);}
+}
+
+// ── CLIENT MANAGEMENT (localStorage) ────────────────────────────────────────
+var AGENT_KEY='pamela';
+
+// ── FIREBASE SETUP ────────────────────────────────────────────────────────────
+var FB_CONFIG = {
+  apiKey: "AIzaSyDuOCOZt228DDsx9aLbVS3ToEkloPpgR4A",
+  authDomain: "smartpera-policysummary.firebaseapp.com",
+  databaseURL: "https://smartpera-policysummary-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "smartpera-policysummary",
+  storageBucket: "smartpera-policysummary.firebasestorage.app",
+  messagingSenderId: "264324658497",
+  appId: "1:264324658497:web:ad0bb991818fef6aa05dc0"
+};
+var fbDB=null, currentUid=null;
+try{
+  if(!firebase.apps.length) firebase.initializeApp(FB_CONFIG);
+  fbDB=firebase.database();
+  // Use anonymous auth for stable cross-device UID
+  firebase.auth().signInAnonymously().then(function(result){
+    currentUid=result.user.uid;
+    // On first load, pull cloud data
+    syncPullClients(AGENT_KEY, currentUid);
+    loadSharedTemplatesFromFirebase();
+  }).catch(function(e){ console.warn('Firebase auth failed, offline mode:', e.message); });
+} catch(e){ console.warn('Firebase init failed, offline mode:', e.message); }
+
+var STORE_KEY = 'spadastra_clients_v1';
+
+function openClientsPanel(){
+  document.getElementById('cpPanel').classList.add('open');
+  document.getElementById('cpOverlay').classList.add('show');
+  renderClientsList('');
+}
+function closeClientsPanel(){
+  document.getElementById('cpPanel').classList.remove('open');
+  document.getElementById('cpOverlay').classList.remove('show');
+}
+function filterClients(){ renderClientsList(document.getElementById('cpSearch').value); }
+
+function showToast(msg){
+  var t=document.getElementById('toastEl');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},2500);
+}
+
+function getAllClients(){
+  try{ return JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); }catch(e){ return []; }
+}
+
+function saveAllClients(arr){
+  localStorage.setItem(STORE_KEY, JSON.stringify(arr));
+  if(fbDB && currentUid){
+    fbDB.ref('policySummary/agents/'+AGENT_KEY+'/'+currentUid+'/clients').set(arr)
+      .catch(function(e){console.error('Cloud save failed',e);});
+  }
+}
+
+function syncPullClients(agentKey, uid){
+  if(!fbDB||!uid)return;
+  fbDB.ref('policySummary/agents/'+agentKey+'/'+uid+'/clients').once('value').then(function(snap){
+    var data=snap.val();
+    if(data && Array.isArray(data) && data.length){
+      localStorage.setItem(STORE_KEY, JSON.stringify(data));
+      var cp=document.getElementById('cpPanel');
+      if(cp && cp.classList.contains('open')){
+        renderClientsList((document.getElementById('cpSearch')||{}).value||'');
+      }
+      showToast('\u2713 Cloud data loaded!');
+    } else {
+      // Nothing in cloud yet — push local data up
+      var local=getAllClients();
+      if(local && local.length){
+        fbDB.ref('policySummary/agents/'+agentKey+'/'+uid+'/clients').set(local)
+          .catch(function(e){});
+      }
+    }
+  }).catch(function(e){console.warn('Cloud load failed:',e.message);});
+}
+
+function saveCurrentClient(){
+  var name = document.getElementById('clientName').value.trim();
+  if(!name){ alert('Please enter a client name before saving.'); return; }
+  var state = {
+    id: Date.now().toString(),
+    savedAt: new Date().toISOString(),
+    clientName: name,
+    clientStatus: document.getElementById('clientStatus').value,
+    annualIncome: document.getElementById('annualIncome').value,
+    clientAge: document.getElementById('clientAge').value,
+    members: JSON.parse(JSON.stringify(members)),
+    pMapData: {},
+    retInputs: {
+      age: document.getElementById('r_age').value,
+      retAge: document.getElementById('r_ret_age').value,
+      life: document.getElementById('r_life').value,
+      income: document.getElementById('r_income').value,
+      inf: document.getElementById('r_inf').value,
+      retRate: document.getElementById('r_ret_rate').value,
+      existing: document.getElementById('r_existing').value
+    },
+    eduInputsMap: {},
+    phpRate: document.getElementById('phpRate').value,
+    phpOn: phpOn,
+    advNotes: document.getElementById('advNotes').value
+  };
+  members.forEach(function(m){
+    state.pMapData[m.id] = JSON.parse(JSON.stringify(getPols(m.id)));
+  });
+  var children = members.filter(function(m){return m.type==='child';});
+  children.forEach(function(c){
+    if(document.getElementById('ea-'+c.id)){
+      state.eduInputsMap[c.id]={
+        uni: document.getElementById('eu-'+c.id)?document.getElementById('eu-'+c.id).value:'18',
+        dur: document.getElementById('ed-'+c.id)?document.getElementById('ed-'+c.id).value:'4',
+        tuition: document.getElementById('et-'+c.id)?document.getElementById('et-'+c.id).value:'20,000',
+        inf: document.getElementById('ei-'+c.id)?document.getElementById('ei-'+c.id).value:'4',
+        ret: document.getElementById('er-'+c.id)?document.getElementById('er-'+c.id).value:'5',
+        existing: document.getElementById('ee-'+c.id)?document.getElementById('ee-'+c.id).value:''
+      };
+    }
+  });
+  var clients = getAllClients();
+  var existIdx = -1;
+  clients.forEach(function(c,i){ if(c.clientName===name) existIdx=i; });
+  if(existIdx>=0){ state.id=clients[existIdx].id; clients[existIdx]=state; }
+  else { clients.push(state); }
+  saveAllClients(clients);
+  showToast('✓ '+name+' saved!');
+  renderClientsList(document.getElementById('cpSearch').value||'');
+}
+
+function deleteClient(id, e){
+  e.stopPropagation();
+  var clients = getAllClients().filter(function(c){return c.id!==id;});
+  saveAllClients(clients);
+  renderClientsList(document.getElementById('cpSearch').value||'');
+  showToast('Client removed');
+}
+
+function loadClient(id){
+  var clients = getAllClients();
+  var state = clients.find(function(c){return c.id===id;});
+  if(!state){ alert('Client not found.'); return; }
+  document.getElementById('clientName').value = state.clientName||'';
+  document.getElementById('clientStatus').value = state.clientStatus||'married';
+  document.getElementById('annualIncome').value = state.annualIncome||'';
+  document.getElementById('clientAge').value = state.clientAge||'';
+  members = state.members||[{id:'m0',type:'primary',name:'',age:null}];
+  activeMId = members[0]?members[0].id:'m0';
+  midCtr=1;pidCtr=0;bidCtr=0;
+  members.forEach(function(m){
+    var n=parseInt(m.id.replace('m',''))||0; if(n>=midCtr)midCtr=n+1;
+  });
+  pMap={};
+  if(state.pMapData){
+    Object.keys(state.pMapData).forEach(function(mid){
+      pMap[mid]=state.pMapData[mid];
+      pMap[mid].forEach(function(p){
+        var n=parseInt(p.id.replace('p',''))||0; if(n>=pidCtr)pidCtr=n+1;
+        if(p.benefits)p.benefits.forEach(function(b){
+          var bn=parseInt(b.id.replace('b',''))||0; if(bn>=bidCtr)bidCtr=bn+1;
+        });
+      });
+    });
+  }
+  if(state.retInputs){
+    var ri=state.retInputs;
+    document.getElementById('r_age').value=ri.age||'35';
+    document.getElementById('r_ret_age').value=ri.retAge||'60';
+    document.getElementById('r_life').value=ri.life||'85';
+    document.getElementById('r_income').value=ri.income||'3,000';
+    document.getElementById('r_inf').value=ri.inf||'4';
+    document.getElementById('r_ret_rate').value=ri.retRate||'6';
+    document.getElementById('r_existing').value=ri.existing||'0';
+  }
+  document.getElementById('phpRate').value=state.phpRate||'37.00';
+  phpOn=state.phpOn||false;
+  var pb=document.getElementById('phpBtn');
+  pb.classList.toggle('on',phpOn);
+  pb.textContent=phpOn?'ON ₱':'OFF';
+  document.getElementById('advNotes').value=state.advNotes||'';
+  renderMemberPills();
+  renderEducationTab();
+  syncFromPolicies();
+  calcRet();
+  if(state.eduInputsMap){
+    setTimeout(function(){
+      Object.keys(state.eduInputsMap).forEach(function(mid){
+        var ei=state.eduInputsMap[mid];
+        ['eu','ed','et','ei','er','ee'].forEach(function(pre,j){
+          var vals=[ei.uni,ei.dur,ei.tuition,ei.inf,ei.ret,ei.existing];
+          var el=document.getElementById(pre+'-'+mid);
+          if(el){ el.value=vals[j]||''; calcOneEdu(mid); }
+        });
+      });
+    },200);
+  }
+  closeClientsPanel();
+  showToast('✓ '+state.clientName+' loaded!');
+}
+
+function renderClientsList(query){
+  var list = document.getElementById('cpList');
+  var clients = getAllClients();
+  if(query) clients = clients.filter(function(c){ return c.clientName.toLowerCase().indexOf(query.toLowerCase())>=0; });
+  clients.sort(function(a,b){ return b.savedAt > a.savedAt ? 1 : -1; });
+  if(!clients.length){
+    list.innerHTML='<div class="cp-empty">'+(query?'No clients match "'+escH(query)+'"':'No saved clients yet.<br>Fill in client details and click Save.')+'</div>';
+    return;
+  }
+  list.innerHTML = clients.map(function(c){
+    var d=new Date(c.savedAt);
+    var dateStr=d.toLocaleDateString('en-SG',{day:'2-digit',month:'short',year:'numeric'});
+    var timeStr=d.toLocaleTimeString('en-SG',{hour:'2-digit',minute:'2-digit'});
+    var stLbl=c.clientStatus==='married'?'Married w/ Children':c.clientStatus==='married_nc'?'Married, No Children':'Single';
+    var pols=0;if(c.pMapData){Object.keys(c.pMapData).forEach(function(mid){pols+=(c.pMapData[mid]||[]).length;});}
+    var mem=c.members?c.members.length:1;
+    return '<div class="cp-item">'
+      +'<div class="ci-name">'+escH(c.clientName)+'</div>'
+      +'<div class="ci-meta">'+stLbl+' &middot; Income: '+(c.annualIncome||'?')
+      +' &middot; '+mem+' member'+(mem>1?'s':'')
+      +' &middot; '+pols+' polic'+(pols===1?'y':'ies')+'</div>'
+      +'<div class="ci-meta">Saved: '+dateStr+' '+timeStr+'</div>'
+      +'<div class="ci-actions">'
+      +'<button class="ci-load" data-id="'+c.id+'">&#128194; Load</button>'
+      +'<button class="ci-del" data-id="'+c.id+'">&#128465; Delete</button>'
+      +'</div></div>';
+  }).join('');
+  list.querySelectorAll('.ci-load').forEach(function(btn){
+    btn.addEventListener('click',function(){ loadClient(this.getAttribute('data-id')); });
+  });
+  list.querySelectorAll('.ci-del').forEach(function(btn){
+    btn.addEventListener('click',function(e){ deleteClient(this.getAttribute('data-id'),e); });
+  });
+}
+
+function newClient(){
+  if(document.getElementById('clientName').value&&!confirm('Start a new client? Make sure you have saved if needed.')){return;}
+  document.getElementById('clientName').value='';
+  document.getElementById('clientStatus').value='married';
+  document.getElementById('annualIncome').value='';
+  document.getElementById('clientAge').value='';
+  document.getElementById('advNotes').value='';
+  members=[{id:'m0',type:'primary',name:'',age:null}];
+  activeMId='m0';activeGapMId='m0';
+  midCtr=1;pidCtr=0;bidCtr=0;
+  pMap={};
+  retData={amount:0,existFV:0,shortfall:0,monthlyC:0};
+  eduData={};
+  if(gapCh){gapCh.destroy();gapCh=null;}
+  if(retCh){retCh.destroy();retCh=null;}
+  eduCharts={};
+  document.getElementById('r_age').value='35';
+  document.getElementById('r_ret_age').value='60';
+  document.getElementById('r_life').value='85';
+  document.getElementById('r_income').value='3,000';
+  document.getElementById('r_inf').value='4';
+  document.getElementById('r_ret_rate').value='6';
+  document.getElementById('r_existing').value='0';
+  renderMemberPills();
+  renderEducationTab();
+  showTab('policies');
+  showToast('✓ New client started!');
+}
+
+function exportClientsJSON(){
+  var clients = getAllClients();
+  if(!clients.length){ showToast('No saved clients to export.'); return; }
+  var json = JSON.stringify(clients, null, 2);
+  var blob = new Blob([json], {type:'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  var today = new Date().toISOString().slice(0,10);
+  a.download = 'SP-AdAstra-Clients-' + today + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('✓ Exported ' + clients.length + ' client' + (clients.length>1?'s':'') + '!');
+}
+
+function importClientsJSON(input){
+  var file = input.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      var imported = JSON.parse(e.target.result);
+      if(!Array.isArray(imported)){ alert('Invalid file format. Please use a valid SP Ad Astra export file.'); return; }
+      var existing = getAllClients();
+      var added=0, updated=0;
+      imported.forEach(function(c){
+        if(!c.id||!c.clientName){ return; }
+        var idx = existing.findIndex(function(x){ return x.clientName===c.clientName; });
+        if(idx>=0){ existing[idx]=c; updated++; }
+        else{ existing.push(c); added++; }
+      });
+      saveAllClients(existing);
+      renderClientsList(document.getElementById('cpSearch').value||'');
+      showToast('✓ Imported: '+added+' new, '+updated+' updated');
+      input.value = '';
+    } catch(err){
+      alert('Error reading file: '+err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+
+
+function addNotesPage(doc,client,today,stLbl,inc,sp,phpR,pg,PW,PH,M,CW){
+  var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+  // Client band
+  doc.setFillColor(38,128,235);doc.rect(M,y,CW,9,'F');
+  doc.setFillColor(201,168,76);doc.rect(M,y,2.5,9,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(12);doc.setTextColor(255,255,255);
+  doc.text((client||'CLIENT').toUpperCase()+' \u2014 PORTFOLIO SUMMARY',M+6,y+6);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(219,234,254);
+  doc.text(stLbl+(inc>0?'  \u00b7  Annual Income: S$'+inc.toLocaleString('en-SG'):'')+(sp?'  \u00b7  1 SGD = '+phpR+' PHP':''),PW-M-3,y+6,{align:'right'});
+  y+=12;
+  // Advisor's Notes section
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,8,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(13,27,62);
+  doc.text('ADVISOR\u2019S NOTES',M+7,y+5.5);
+  y+=11;
+  var notes=document.getElementById('advNotes').value||'No additional notes recorded for this meeting.';
+  doc.setFillColor(250,247,237);doc.setDrawColor(220,212,185);doc.setLineWidth(0.4);
+  doc.roundedRect(M,y,CW,55,2,2,'FD');
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,55,'F');
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(30,41,59);
+  var noteLines=doc.splitTextToSize(notes,CW-12);
+  doc.text(noteLines.slice(0,12),M+7,y+7);
+  y+=60;
+  // Recommended Next Steps
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,8,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(13,27,62);
+  doc.text('RECOMMENDED NEXT STEPS',M+7,y+5.5);
+  y+=11;
+  var steps=[
+    'Review this portfolio summary and verify all policy details are accurate.',
+    'Discuss any identified retirement or education funding gaps and explore options to close them.',
+    'Schedule your next portfolio review in 12 months, or sooner upon any major life event.'
+  ];
+  steps.forEach(function(s,i){
+    doc.setFillColor(250,247,237);doc.roundedRect(M,y,CW,8,1.5,1.5,'F');
+    doc.setFillColor(201,168,76);doc.circle(M+5,y+4,2.2,'F');
+    doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(255,255,255);
+    doc.text(String(i+1),M+5,y+5.3,{align:'center'});
+    doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(30,41,59);
+    doc.text(s,M+12,y+5.3);
+    y+=10;
+  });
+  y+=4;
+  // Disclosure box
+  doc.setFillColor(245,241,229);doc.setDrawColor(201,168,76);doc.setLineWidth(0.4);
+  doc.roundedRect(M,y,CW,14,2,2,'FD');
+  doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(201,168,76);
+  doc.text('IMPORTANT DISCLOSURE',M+4,y+4);
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(30,41,59);
+  var disc='Prepared by Pamela Rose Quinto, Financial Services Consultant, AIA Singapore Pte. Ltd. (Reg. No. 201106386R). +65 8874 1775 · pamquinto@aia.com.sg. This summary is for illustration purposes only. It is not a contract of insurance and not a recommendation to buy, surrender, or alter any policy. All projections rely on the assumptions disclosed in this document. Actual results may differ. A formal financial needs analysis is available on request.';
+  var discLines=doc.splitTextToSize(disc,CW-8);
+  doc.text(discLines,M+4,y+8);
+  _pdfFooter(doc,pg,PW,PH,M);
+}
+
+
+// ── POLICY TEMPLATE SYSTEM ─────────────────────────────────────────────────
+var DEFAULT_POLICY_LIBRARY = [
+  {
+    id:'pro_lifetime_protector',
+    name:'AIA Pro Lifetime Protector',
+    planType:'Life Insurance',
+    benefits:['Death','Total Disability','Lifetime Critical Cover','Special Conditions','Early Waiver of Premium'],
+    bullets:[
+      'Ultimate illness cover with cash value',
+      'Illness claim up to 3x of benefit',
+      'Early waiver of premium after first illness claim',
+      'Slow and steady money accumulation over time',
+      'Pay as long as you can'
+    ]
+  },
+  {
+    id:'ultimate_critical_cover',
+    name:'AIA Ultimate Critical Cover',
+    planType:'Life Insurance',
+    benefits:['Death','Early Critical Illness','Major Stage Illness','Early Waiver of Premium'],
+    bullets:[
+      'Ultimate illness benefit',
+      'Claim multiple illnesses from early to critical stage'
+    ]
+  },
+  {
+    id:'family_first_secure',
+    name:'AIA Family First Secure',
+    planType:'Life Insurance',
+    benefits:['Death','Total Disability','Critical Illness','Early Critical Illness'],
+    bullets:[
+      'Starter family protection plan',
+      'Premium holiday and partial withdrawal flexibility',
+      'Cash value accumulation'
+    ]
+  },
+  {
+    id:'secure_flexi_term',
+    name:'AIA Secure Flexi Term',
+    planType:'Term Life Insurance',
+    benefits:['Death','Total Disability','Critical Illness','Early Critical Illness'],
+    bullets:[
+      'Pure income protection',
+      'No cash value',
+      'Cost-effective family coverage'
+    ]
+  },
+  {
+    id:'secure_term_plus',
+    name:'AIA Secure Term Plus',
+    planType:'Term Life Insurance',
+    benefits:['Death','Total Disability','Critical Illness','Early Critical Illness'],
+    bullets:[
+      'Pure income protection',
+      'No cash value',
+      'Cost-effective family coverage'
+    ]
+  },
+  {
+    id:'guaranteed_protect_plus',
+    name:'AIA Guaranteed Protect Plus',
+    planType:'Life Insurance',
+    benefits:['Death','Total Disability','Early Illness','Critical Illness'],
+    bullets:[
+      'Limited pay 15 / 20 / 25 years with guaranteed insurance cover until age 100',
+      'Death and Early Illness cover until age 100',
+      'Total Disability expires at age 70',
+      'High insurance benefit during active years to age 65 / 75 / 85',
+      'After active years, booster expires \u2014 new benefit is base benefit plus policy value'
+    ]
+  },
+  {
+    id:'solitaire_accident',
+    name:'AIA Solitaire Accident Plan',
+    planType:'Personal Accident',
+    benefits:['Accidental Death','Accidental TPD','Accident Medical','TCM / Chiro','Accident Daily Income'],
+    bullets:[
+      'A powerful insurance benefit for unexpected minor or major injuries and accidents',
+      'Covers both inpatient and outpatient treatment',
+      'Coverage extends internationally'
+    ]
+  },
+  {
+    id:'pro_achiever',
+    name:'AIA Pro Achiever (Options 1/2/3)',
+    planType:'Retirement / Investment',
+    benefits:['Investment','Waiver of Premium'],
+    bullets:[
+      'Wealth accumulation with regular savings',
+      'Flexible withdrawal options',
+      'Long-term investment growth',
+      'Limited pay 10 years'
+    ]
+  },
+  {
+    id:'platinum_retirement_elite',
+    name:'AIA Platinum Retirement Elite',
+    planType:'Retirement / Pension',
+    benefits:['Investment Value','Pension Income','Lifetime Money Accumulation'],
+    bullets:[
+      'Institutional investing with global asset managers',
+      'Pension type starting at age 55 onwards',
+      'Partial withdrawal from 11th year'
+    ]
+  },
+  {
+    id:'wealth_pro_advantage_25',
+    name:'AIA Wealth Pro Advantage 25',
+    planType:'Savings & Investment',
+    benefits:['Investment Value','Savings Value'],
+    bullets:[
+      'Combination of savings and investment',
+      'Low-risk portfolio with guaranteed accumulation',
+      'Often used for educational planning'
+    ]
+  },
+  {
+    id:'platinum_wealth_elite',
+    name:'AIA Platinum Wealth Elite',
+    planType:'Investment / Life',
+    benefits:['Death','Investment'],
+    bullets:[
+      'Perfect for professionals who want to grow their money while protecting their loved ones against uncertainties',
+      'Institutional investment strategy'
+    ]
+  },
+  {
+    id:'platinum_wealth_venture',
+    name:'AIA Platinum Wealth Venture',
+    planType:'Dividend Investment',
+    benefits:['Dividends','Investment'],
+    bullets:[
+      'Limited pay 5 years',
+      'Long-term investment strategy aimed at capital growth',
+      'Aims to generate passive income through dividends',
+      'Target dividend payout 7\u20138% per year, paid quarterly'
+    ]
+  },
+  {
+    id:'wealth_venture',
+    name:'AIA Wealth Venture',
+    planType:'Dividend Investment',
+    benefits:['Dividends','Investment'],
+    bullets:[
+      'Limited pay 8 years',
+      'Long-term investment strategy aimed at capital growth',
+      'Aims to generate passive income through dividends',
+      'Target dividend payout 7\u20138% per year, paid quarterly'
+    ]
+  },
+  {
+    id:'healthshield_gold_max',
+    name:'AIA HealthShield Gold Max',
+    planType:'Hospitalisation',
+    benefits:['Yearly Hospital Limit','Pre/Post Hospital Bill','Deductibles','Co-insurance'],
+    bullets:[
+      'Covers inpatient in private and government hospitals',
+      'Co-payment of 10% on hospital bill is not covered',
+      'Deductibles up to $3,500 are not covered',
+      'Pre and post hospital bills covered up to 13 months'
+    ]
+  },
+  {
+    id:'health_cash_plus',
+    name:'AIA Health Cash Plus',
+    planType:'Hospital Income',
+    benefits:['Daily Hospital Income','Acc Hospital Income','ICU Daily Income','Day Surgery'],
+    bullets:[
+      'Covers inpatient for daily income',
+      'Coverage extends globally',
+      'Supplementary to company and personal insurance'
+    ]
+  }
+];
+
+var LIBRARY_KEY = 'spadastra_policy_library_v1';
+var SUBMISSIONS_KEY = 'spadastra_policy_submissions_v1';
+
+function getPolicyLibrary(){
+  try{
+    var lib=JSON.parse(localStorage.getItem(LIBRARY_KEY)||'null');
+    if(!lib||!Array.isArray(lib)||!lib.length)return DEFAULT_POLICY_LIBRARY.slice();
+    return lib;
+  }catch(e){return DEFAULT_POLICY_LIBRARY.slice();}
+}
+function savePolicyLibrary(lib){localStorage.setItem(LIBRARY_KEY,JSON.stringify(lib));}
+function getSubmissions(){
+  try{return JSON.parse(localStorage.getItem(SUBMISSIONS_KEY)||'[]');}catch(e){return [];}
+}
+function saveSubmissions(arr){localStorage.setItem(SUBMISSIONS_KEY,JSON.stringify(arr));}
+
+// ── POLICY LIBRARY DROPDOWN (in Add Policy form) ────────────────────────────
+function populatePolicyLibraryDropdown(){
+  var sel=document.getElementById('policyLibrarySelect');
+  if(!sel)return;
+  var lib=getPolicyLibrary();
+  sel.innerHTML='<option value="">\u2014 Pick a policy template (optional) \u2014</option>'
+    + lib.map(function(p){return '<option value="'+p.id+'">'+escH(p.name)+'</option>';}).join('');
+}
+
+function applyPolicyTemplate(templateId, policyId){
+  if(!templateId)return;
+  var lib=getPolicyLibrary();
+  var t=lib.find(function(p){return p.id===templateId;});
+  if(!t)return;
+  // Find the policy object in pMap
+  var pol=null,memberId=null;
+  Object.keys(pMap).forEach(function(mid){
+    (pMap[mid]||[]).forEach(function(p){
+      if(p.id===policyId){pol=p;memberId=mid;}
+    });
+  });
+  if(!pol)return;
+  // Apply template fields
+  pol.name=t.name;
+  pol.type=t.planType;
+  // Replace benefits with template defaults (each gets a new id, sa=0)
+  pol.benefits=t.benefits.map(function(b){
+    return {id:'b'+(bidCtr++),type:b,sa:0};
+  });
+  // Apply bullets (stored on policy as info)
+  pol.info=t.bullets.slice();
+  // Re-render the policy card
+  renderPoliciesForMember(activeMId);
+  showToast('\u2713 Template applied');
+}
+
+// ── ADMIN: POLICY LIBRARY EDITOR ─────────────────────────────────────────────
+function openLibraryEditor(){
+  // Medz is master — full access always granted
+  renderLibraryList();
+  if(typeof renderSubmissionsList==='function')renderSubmissionsList();
+  document.getElementById('libraryOverlay').classList.add('show');
+}
+function closeLibraryEditor(){document.getElementById('libraryOverlay').classList.remove('show');}
+
+function renderLibraryList(){
+  var list=document.getElementById('libraryList');
+  var lib=getPolicyLibrary();
+  if(!lib.length){
+    list.innerHTML='<div style="text-align:center;padding:30px;color:var(--muted);font-style:italic">No templates yet.</div>';
+    return;
+  }
+  list.innerHTML=lib.map(function(t,idx){
+    return '<div class="lib-card" data-idx="'+idx+'" data-id="'+escH(t.id)+'">'
+      +'<div class="lib-card-h">'
+        +'<div style="flex:1">'
+          +'<input class="lib-name-input" data-f="name" value="'+escH(t.name)+'" placeholder="Policy name"/>'
+          +'<input class="lib-type-input" data-f="planType" value="'+escH(t.planType)+'" placeholder="Plan type"/>'
+        +'</div>'
+        +'<button class="lib-del-btn" onclick="removeLibraryTemplate('+idx+')" title="Delete">&#128465;</button>'
+      +'</div>'
+      +'<div class="lib-section">'
+        +'<div class="lib-section-h">Default Benefits</div>'
+        +'<div class="lib-bens" id="lib-bens-'+idx+'">'
+          +t.benefits.map(function(b,bi){return libBenefitRow(idx,bi,b);}).join('')
+        +'</div>'
+        +'<button class="lib-add-mini" onclick="addLibBenefit('+idx+')">+ Benefit</button>'
+      +'</div>'
+      +'<div class="lib-section">'
+        +'<div class="lib-section-h">Default Policy Information Bullets</div>'
+        +'<div class="lib-bullets" id="lib-bullets-'+idx+'">'
+          +t.bullets.map(function(b,bi){return libBulletRow(idx,bi,b);}).join('')
+        +'</div>'
+        +'<button class="lib-add-mini" onclick="addLibBullet('+idx+')">+ Bullet</button>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function libBenefitRow(libIdx,benIdx,val){
+  return '<div class="lib-row"><input value="'+escH(val)+'" data-libidx="'+libIdx+'" data-benidx="'+benIdx+'" data-kind="benefit"/>'
+    +'<button class="lib-row-del" onclick="removeLibBenefit('+libIdx+','+benIdx+')">\u00d7</button></div>';
+}
+function libBulletRow(libIdx,bulIdx,val){
+  return '<div class="lib-row"><input value="'+escH(val).replace(/&quot;/g,'"')+'" data-libidx="'+libIdx+'" data-bulidx="'+bulIdx+'" data-kind="bullet"/>'
+    +'<button class="lib-row-del" onclick="removeLibBullet('+libIdx+','+bulIdx+')">\u00d7</button></div>';
+}
+
+function addLibBenefit(libIdx){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  lib[libIdx].benefits.push('');
+  savePolicyLibrary(lib);
+  renderLibraryList();
+}
+function removeLibBenefit(libIdx,benIdx){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  lib[libIdx].benefits.splice(benIdx,1);
+  savePolicyLibrary(lib);
+  renderLibraryList();
+}
+function addLibBullet(libIdx){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  lib[libIdx].bullets.push('');
+  savePolicyLibrary(lib);
+  renderLibraryList();
+}
+function removeLibBullet(libIdx,bulIdx){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  lib[libIdx].bullets.splice(bulIdx,1);
+  savePolicyLibrary(lib);
+  renderLibraryList();
+}
+function addLibraryTemplate(){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  lib.push({
+    id:'custom_'+Date.now(),
+    name:'',
+    planType:'',
+    benefits:[],
+    bullets:[]
+  });
+  savePolicyLibrary(lib);
+  renderLibraryList();
+  // Scroll to bottom
+  setTimeout(function(){
+    var list=document.getElementById('libraryList');
+    list.scrollTop=list.scrollHeight;
+  },50);
+}
+function removeLibraryTemplate(libIdx){
+  if(!confirm('Delete this policy template? This affects all agents.'))return;
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  var removed=lib[libIdx];
+  lib.splice(libIdx,1);
+  savePolicyLibrary(lib);
+  logAudit('DELETE_TEMPLATE',{name:removed.name});
+  renderLibraryList();
+}
+
+function collectLibraryEdits(){
+  // Read all the current input values back into the library
+  var lib=getPolicyLibrary();
+  document.querySelectorAll('#libraryList .lib-card').forEach(function(card){
+    var idx=parseInt(card.getAttribute('data-idx'));
+    if(isNaN(idx)||!lib[idx])return;
+    card.querySelectorAll('[data-f]').forEach(function(el){
+      lib[idx][el.getAttribute('data-f')]=el.value.trim();
+    });
+    var bens=[];
+    card.querySelectorAll('[data-kind="benefit"]').forEach(function(el){
+      bens.push(el.value.trim());
+    });
+    var buls=[];
+    card.querySelectorAll('[data-kind="bullet"]').forEach(function(el){
+      buls.push(el.value.trim());
+    });
+    lib[idx].benefits=bens.filter(function(s){return s;});
+    lib[idx].bullets=buls.filter(function(s){return s;});
+  });
+  savePolicyLibrary(lib);
+}
+
+
+function syncTemplatesToFirebase(lib){
+  if(!fbDB)return;
+  fbDB.ref('policySummary/sharedTemplates').set(lib)
+    .then(function(){console.log('Templates synced:',lib.length);}).catch(function(e){});
+}
+function loadSharedTemplatesFromFirebase(){
+  if(!fbDB)return;
+  fbDB.ref('policySummary/sharedTemplates').once('value').then(function(snap){
+    var data=snap.val();
+    if(data&&Array.isArray(data)&&data.length){savePolicyLibrary(data);populatePolicyLibraryDropdown();}
+  }).catch(function(e){});
+}
+function saveLibraryEdits(){
+  collectLibraryEdits();
+  var lib=getPolicyLibrary();
+  savePolicyLibrary(lib);
+  syncTemplatesToFirebase(lib);
+  populatePolicyLibraryDropdown();
+  showToast('✓ Library saved — synced to all agents');
+}
+
+// ── SUBMISSION QUEUE ─────────────────────────────────────────────────────────
+function submitNewTemplate(name,planType,benefits,bullets){
+  if(!currentAgent)return;
+  var subs=getSubmissions();
+  subs.push({
+    id:'sub_'+Date.now(),
+    submittedAt:new Date().toISOString(),
+    submittedBy:currentAgent.name,
+    submittedByPin:currentAgent.pin,
+    name:name,
+    planType:planType,
+    benefits:benefits.slice(),
+    bullets:bullets.slice(),
+    status:'pending'
+  });
+  saveSubmissions(subs);
+  logAudit('SUBMIT_TEMPLATE',{name:name,submittedBy:currentAgent.name});
+  showToast('\u2713 Submitted for master approval');
+  updateSubmissionsBadge();
+}
+
+function updateSubmissionsBadge(){
+  var badge=document.getElementById('subBadge');
+  var inline=document.getElementById('subBadgeInline');
+  var pending=getSubmissions().filter(function(s){return s.status==='pending';}).length;
+  if(badge){
+    if(pending>0){badge.textContent=pending;badge.style.display='inline-flex';}
+    else{badge.style.display='none';}
+  }
+  if(inline){
+    if(pending>0){inline.textContent=pending;inline.style.display='inline-flex';}
+    else{inline.style.display='none';}
+  }
+}
+
+function renderSubmissionsList(){
+  var list=document.getElementById('submissionsList');
+  if(!list)return;
+  var subs=getSubmissions().filter(function(s){return s.status==='pending';});
+  if(!subs.length){
+    list.innerHTML='<div style="text-align:center;padding:20px;color:var(--muted);font-style:italic;font-size:12px">No pending submissions</div>';
+    return;
+  }
+  list.innerHTML=subs.map(function(s){
+    var dt=new Date(s.submittedAt);
+    var ts=dt.toLocaleDateString('en-SG',{day:'2-digit',month:'short'})+' '+dt.toLocaleTimeString('en-SG',{hour:'2-digit',minute:'2-digit'});
+    return '<div class="sub-card">'
+      +'<div class="sub-h"><strong>'+escH(s.name)+'</strong><span class="sub-meta">'+escH(s.submittedBy)+' \u00b7 '+ts+'</span></div>'
+      +'<div class="sub-type">Plan type: '+escH(s.planType||'\u2014')+'</div>'
+      +'<div class="sub-section"><div class="sub-label">Benefits</div>'
+        +s.benefits.map(function(b){return '<div class="sub-item">\u2022 '+escH(b)+'</div>';}).join('')
+      +'</div>'
+      +'<div class="sub-section"><div class="sub-label">Bullets</div>'
+        +s.bullets.map(function(b){return '<div class="sub-item">\u2022 '+escH(b)+'</div>';}).join('')
+      +'</div>'
+      +'<div class="sub-actions">'
+        +'<button class="sub-approve" onclick="approveSubmission(\''+s.id+'\')">&#10004; Approve &amp; Add</button>'
+        +'<button class="sub-reject" onclick="rejectSubmission(\''+s.id+'\')">&#10006; Reject</button>'
+      +'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function approveSubmission(subId){
+  var subs=getSubmissions();
+  var idx=subs.findIndex(function(s){return s.id===subId;});
+  if(idx<0)return;
+  var s=subs[idx];
+  var lib=getPolicyLibrary();
+  lib.push({
+    id:'submitted_'+Date.now(),
+    name:s.name,
+    planType:s.planType,
+    benefits:s.benefits,
+    bullets:s.bullets
+  });
+  savePolicyLibrary(lib);
+  s.status='approved';
+  subs[idx]=s;
+  saveSubmissions(subs);
+  logAudit('APPROVE_TEMPLATE',{name:s.name,by:s.submittedBy});
+  renderLibraryList();
+  renderSubmissionsList();
+  updateSubmissionsBadge();
+  populatePolicyLibraryDropdown();
+  showToast('\u2713 Approved and added to library');
+}
+function rejectSubmission(subId){
+  if(!confirm('Reject this submission?'))return;
+  var subs=getSubmissions();
+  var idx=subs.findIndex(function(s){return s.id===subId;});
+  if(idx<0)return;
+  subs[idx].status='rejected';
+  saveSubmissions(subs);
+  renderSubmissionsList();
+  updateSubmissionsBadge();
+  showToast('Submission rejected');
+}
+
+// ── "SAVE AS TEMPLATE" workflow on a custom policy ───────────────────────────
+function offerSaveAsTemplate(policyId){
+  var pol=null;
+  Object.keys(pMap).forEach(function(mid){
+    (pMap[mid]||[]).forEach(function(p){if(p.id===policyId)pol=p;});
+  });
+  if(!pol||!pol.name){showToast('Add a policy name first');return;}
+  var benefits=(pol.benefits||[]).map(function(b){return b.type;}).filter(function(s){return s&&s!=='—';});
+  var bullets=pol.info||[];
+  var lib=getPolicyLibrary();
+  var existIdx=-1;
+  lib.forEach(function(t,i){if(t.name===pol.name)existIdx=i;});
+  if(existIdx>=0){
+    if(!confirm('Template "'+pol.name+'" already exists. Update it?'))return;
+    lib[existIdx].planType=pol.type||'';
+    lib[existIdx].benefits=benefits;
+    lib[existIdx].bullets=bullets.slice();
+  } else {
+    lib.push({id:'custom_'+Date.now(),name:pol.name,planType:pol.type||'',benefits:benefits,bullets:bullets.slice()});
+  }
+  savePolicyLibrary(lib);
+  syncTemplatesToFirebase(lib);
+  populatePolicyLibraryDropdown();
+  showToast('✓ Template saved: '+pol.name);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// SHORTFALL GRAPH (new tab, replaces gap analysis presentation)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+var shortfallCh=null;
+
+function addPolicyFromTemplate(mid){
+  var lib=getPolicyLibrary();
+  if(!lib.length){alert('No templates in library yet.');return;}
+  // Build a simple modal-like select using prompt-like UI
+  var pickerHtml='<div style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1100;display:flex;align-items:center;justify-content:center;padding:20px" id="tplPickerOv" onclick="if(event.target===this)closeTplPicker()">'
+    +'<div style="background:#fff;border-radius:12px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto;padding:22px">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;border-bottom:1px solid #E2E8F0;padding-bottom:10px">'
+      +'<h3 style="font-family:\'Cormorant Garamond\',serif;font-size:20px;color:#0D1B3E;margin:0">Pick a Policy Template</h3>'
+      +'<button onclick="closeTplPicker()" style="background:transparent;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer">Close</button>'
+    +'</div>'
+    +'<div style="font-size:12px;color:#64748B;margin-bottom:14px">Pick a policy. The template fills in defaults. You can edit, add, or remove benefits and bullets afterwards.</div>'
+    +'<div style="display:flex;flex-direction:column;gap:6px">'
+    +lib.map(function(t){
+      return '<button onclick="applyTplToNewPolicy(\''+mid+'\',\''+t.id+'\')" style="background:#fff;border:1.5px solid #E2E8F0;border-radius:8px;padding:10px 14px;text-align:left;cursor:pointer;font-family:\'DM Sans\',sans-serif;transition:all 0.15s" onmouseover="this.style.borderColor=\'#C9A84C\';this.style.background=\'#FAF7ED\'" onmouseout="this.style.borderColor=\'#E2E8F0\';this.style.background=\'#fff\'">'
+        +'<div style="font-weight:700;color:#0D1B3E;font-size:13px">'+escH(t.name)+'</div>'
+        +'<div style="font-size:11px;color:#64748B;margin-top:2px">'+escH(t.planType)+' \u00B7 '+t.benefits.length+' benefits \u00B7 '+t.bullets.length+' bullets</div>'
+      +'</button>';
+    }).join('')
+    +'</div></div></div>';
+  var d=document.createElement('div');d.innerHTML=pickerHtml;
+  document.body.appendChild(d.firstChild);
+}
+function closeTplPicker(){var el=document.getElementById('tplPickerOv');if(el)el.remove();}
+function applyTplToNewPolicy(mid,tplId){
+  var lib=getPolicyLibrary();
+  var t=lib.find(function(p){return p.id===tplId;});
+  if(!t){closeTplPicker();return;}
+  var p={
+    id:'p'+pidCtr++,
+    name:t.name,
+    no:'',inception:'',
+    type:t.planType,
+    benefits:t.benefits.map(function(b){return {id:'b'+(bidCtr++),type:b,sa:0};}),
+    pv:0,prem:0,mode:'Monthly',
+    info:t.bullets.slice()
+  };
+  getPols(mid).push(p);
+  renderPolicyRow(mid,p);
+  calcPremiums(mid);
+  closeTplPicker();
+  showToast('\u2713 Template applied: '+t.name);
+}
+
+function renderPolicyRow(mid,p){
+  var tbody=document.getElementById('ptbody-'+mid);if(!tbody)return;
+  var tr=document.createElement('tr');tr.id='pr-'+p.id;
+  var to=PLAN_TYPES.map(function(t){return '<option'+(t===p.type?' selected':'')+'>'+t+'</option>';}).join('');
+  var mo=PAY_MODES.map(function(m){return '<option'+(m===p.mode?' selected':'')+'>'+m+'</option>';}).join('');
+  tr.innerHTML='<td><input type="text" list="policyNameList" value="'+escH(p.name)+'" placeholder="Type or select..."/></td>'
+    +'<td><input type="text" value="'+escH(p.no)+'" placeholder="U12345678"/></td>'
+    +'<td><input type="date" value="'+p.inception+'"/></td>'
+    +'<td><select>'+to+'</select></td>'
+    +'<td><div class="ben-wrap" id="bw-'+p.id+'"></div><button class="ben-add" id="ba-'+p.id+'">+ Add Benefit</button></td>'
+    +'<td><input type="text" value="'+(p.pv?p.pv.toLocaleString('en-SG'):'')+'" placeholder="0" class="ni"/></td>'
+    +'<td><input type="text" value="'+(p.prem?p.prem.toLocaleString('en-SG'):'')+'" placeholder="0" class="ni"/></td>'
+    +'<td><select>'+mo+'</select></td>'
+    +'<td style="text-align:center"><button class="btn-del">✕</button></td>';
+  tbody.appendChild(tr);
+  // Policy Information row (spans all columns)
+  var infoTr=document.createElement('tr');infoTr.id='pinfo-'+p.id;infoTr.className='pinfo-row';
+  infoTr.innerHTML='<td colspan="10" style="padding:0;background:#FAF7ED;border-top:1px solid #C9A84C">'
+    +'<div style="padding:10px 14px">'
+      +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">'
+        +'<div style="font-size:11px;font-weight:700;color:#92731B;letter-spacing:.5px;text-transform:uppercase">Policy Information (commentary for client)</div>'
+        +'<div style="display:flex;gap:6px">'
+          +'<button class="info-add-btn" data-pid="'+p.id+'" style="background:#fff;color:#92731B;border:1px solid #C9A84C;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">+ Bullet</button>'
+          +'<button class="info-save-tpl-btn" data-pid="'+p.id+'" style="background:#0D1B3E;color:#C9A84C;border:none;border-radius:6px;padding:3px 10px;font-size:11px;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600" title="Submit this as a new team template (master approves)">\u21AA Save as Template</button>'
+        +'</div>'
+      +'</div>'
+      +'<div class="info-bullets" id="ibul-'+p.id+'"></div>'
+    +'</div></td>';
+  tbody.appendChild(infoTr);
+  // Render bullets
+  renderInfoBullets(mid,p);
+  // Wire up + Bullet button
+  infoTr.querySelector('.info-add-btn').addEventListener('click',function(){
+    var pol=getPols(mid).find(function(pp){return pp.id===this.getAttribute('data-pid');}.bind(this));
+    if(!pol)return;
+    if(!pol.info)pol.info=[];
+    pol.info.push('');
+    renderInfoBullets(mid,pol);
+  });
+  infoTr.querySelector('.info-save-tpl-btn').addEventListener('click',function(){
+    offerSaveAsTemplate(p.id);
+  });
+  var ins=tr.querySelectorAll('td input[type=text],td input[type=date]');
+  ins[0].addEventListener('input',function(){updP(mid,p.id,'name',this.value);});
+  ins[1].addEventListener('input',function(){updP(mid,p.id,'no',this.value);});
+  ins[2].addEventListener('change',function(){updP(mid,p.id,'inception',this.value);});
+  ins[3].addEventListener('input',function(){numFmt(this);updN(mid,p.id,'pv',this);});
+  ins[4].addEventListener('input',function(){numFmt(this);updN(mid,p.id,'prem',this);calcPremiums(mid);});
+  var ss=tr.querySelectorAll('select');
+  ss[0].addEventListener('change',function(){updP(mid,p.id,'type',this.value);});
+  ss[1].addEventListener('change',function(){updP(mid,p.id,'mode',this.value);calcPremiums(mid);});
+  tr.querySelector('.btn-del').addEventListener('click',function(){delPol(mid,p.id);});
+  document.getElementById('ba-'+p.id).addEventListener('click',function(){addBenefit(mid,p.id);});
+  p.benefits.forEach(function(b){renderBenRow(mid,p.id,b);});
+}
+
+function renderBenRow(mid,pid,b){
+  var wrap=document.getElementById('bw-'+pid);if(!wrap)return;
+  var row=document.createElement('div');row.className='ben-row';row.id='br-'+b.id;
+  row.innerHTML='<div class="ben-combo"><input type="text" class="ben-type-inp" value="'+escH(b.type||'')+'" placeholder="Select or type..." autocomplete="off"/><div class="ben-dd" id="bdd-'+b.id+'"></div></div>'
+    +'<input type="text" value="'+(b.sa?b.sa.toLocaleString('en-SG'):'')+'" placeholder="0" style="width:90px;font-size:10px;text-align:right;padding:2px 5px;border:1px solid var(--b2);border-radius:4px;background:#fafafa;color:var(--text);outline:none"/>'
+    +'<button class="ben-del">✕</button>';
+  wrap.appendChild(row);
+
+  var typeInp=row.querySelector('.ben-type-inp');
+  var dd=document.getElementById('bdd-'+b.id);
+
+  function showDD(filter){
+    var items=BEN_TYPES.filter(function(t){
+      return !filter||t.toLowerCase().indexOf(filter.toLowerCase())>=0;
+    });
+    if(!items.length){dd.classList.remove('open');return;}
+    dd.innerHTML=items.map(function(t){
+      var sel=(t===(b.type||''))||t===typeInp.value;
+      return '<div class="ben-dd-item'+(sel?' selected':'')+'" data-val="'+escH(t)+'">'+escH(t)+'</div>';
+    }).join('');
+    dd.classList.add('open');
+    dd.querySelectorAll('.ben-dd-item').forEach(function(item){
+      item.addEventListener('mousedown',function(e){
+        e.preventDefault();
+        typeInp.value=this.getAttribute('data-val');
+        dd.classList.remove('open');
+        var pl=getPols(mid).find(function(p){return p.id===pid;});
+        var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+        if(bn){bn.type=typeInp.value;syncFromPolicies();}
+      });
+    });
+  }
+
+  typeInp.addEventListener('focus',function(){showDD('');});
+  typeInp.addEventListener('input',function(){
+    showDD(this.value);
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+    if(bn){bn.type=this.value;syncFromPolicies();}
+  });
+  typeInp.addEventListener('blur',function(){
+    setTimeout(function(){dd.classList.remove('open');},160);
+  });
+
+  var saInp=row.querySelector('input:not(.ben-type-inp)');
+  saInp.addEventListener('focus',function(){this.style.borderColor='var(--gold)';this.style.background='#fff';});
+  saInp.addEventListener('blur',function(){this.style.borderColor='var(--b2)';this.style.background='#fafafa';});
+  saInp.addEventListener('input',function(){
+    numFmt(this);
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    var bn=pl?pl.benefits.find(function(x){return x.id===b.id;}):null;
+    if(bn){bn.sa=getN(this);syncFromPolicies();}
+  });
+  row.querySelector('.ben-del').addEventListener('click',function(){
+    var pl=getPols(mid).find(function(p){return p.id===pid;});
+    if(pl)pl.benefits=pl.benefits.filter(function(x){return x.id!==b.id;});
+    row.remove();syncFromPolicies();
+  });
+}
+function addBenefit(mid,pid){
+  var pl=getPols(mid).find(function(p){return p.id===pid;});if(!pl)return;
+  var b={id:'b'+bidCtr++,type:'',sa:0};
+  pl.benefits.push(b);renderBenRow(mid,pid,b);
+}
+
+function renderInfoBullets(mid,p){
+  var wrap=document.getElementById('ibul-'+p.id);if(!wrap)return;
+  var bullets=p.info||[];
+  if(!bullets.length){
+    wrap.innerHTML='<div style="font-size:11px;color:#A38A40;font-style:italic">No bullets yet. Click "+ Bullet" to add commentary, or apply a template.</div>';
+    return;
+  }
+  wrap.innerHTML=bullets.map(function(b,i){
+    return '<div class="info-bullet-row" style="display:flex;gap:6px;align-items:flex-start;margin-bottom:4px">'
+      +'<span style="color:#92731B;font-weight:700;padding-top:6px;font-size:11px">\u2022</span>'
+      +'<textarea data-bi="'+i+'" data-pid="'+p.id+'" style="flex:1;min-height:32px;border:1px solid #E2E8F0;border-radius:6px;padding:6px 10px;font-size:12px;font-family:\'DM Sans\',sans-serif;background:#fff;color:#1E293B;resize:vertical;outline:none">'+escH(b)+'</textarea>'
+      +'<button class="info-bul-del" data-bi="'+i+'" data-pid="'+p.id+'" style="background:#FEE2E2;color:#DC2626;border:none;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:11px;align-self:flex-start;margin-top:2px">\u00D7</button>'
+      +'</div>';
+  }).join('');
+  wrap.querySelectorAll('textarea').forEach(function(ta){
+    ta.addEventListener('input',function(){
+      var pid=this.getAttribute('data-pid');
+      var bi=parseInt(this.getAttribute('data-bi'));
+      var pol=getPols(mid).find(function(pp){return pp.id===pid;});
+      if(pol&&pol.info&&!isNaN(bi)){pol.info[bi]=this.value;}
+    });
+    ta.addEventListener('focus',function(){this.style.borderColor='#C9A84C';});
+    ta.addEventListener('blur',function(){this.style.borderColor='#E2E8F0';});
+  });
+  wrap.querySelectorAll('.info-bul-del').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pid=this.getAttribute('data-pid');
+      var bi=parseInt(this.getAttribute('data-bi'));
+      var pol=getPols(mid).find(function(pp){return pp.id===pid;});
+      if(pol&&pol.info&&!isNaN(bi)){
+        pol.info.splice(bi,1);
+        renderInfoBullets(mid,pol);
+      }
+    });
+  });
+}
+
+function updP(mid,pid,f,v){var p=getPols(mid).find(function(x){return x.id===pid;});if(p){p[f]=v;syncFromPolicies();}}
+function updN(mid,pid,f,el){var p=getPols(mid).find(function(x){return x.id===pid;});if(p){p[f]=getN(el);syncFromPolicies();}}
+function delPol(mid,pid){
+  pMap[mid]=getPols(mid).filter(function(x){return x.id!==pid;});
+  var tr=document.getElementById('pr-'+pid);if(tr)tr.remove();
+  var info=document.getElementById('pinfo-'+pid);if(info)info.remove();
+  calcPremiums(mid);syncFromPolicies();
+}
+
+function calcPremiums(mid){
+  var pols=getPols(mid);var box=document.getElementById('pbox-'+mid);if(!box)return;
+  if(!pols.length){box.innerHTML='';return;}
+  var monthly=0,annual=0;
+  var rows=pols.map(function(p){
+    var mo=0,an=0;
+    if(p.mode==='Monthly'){mo=p.prem;an=p.prem*12;}
+    else if(p.mode==='Quarterly'){mo=p.prem/3;an=p.prem*4;}
+    else if(p.mode==='Semi-Annual'){mo=p.prem/6;an=p.prem*2;}
+    else if(p.mode==='Annual'){mo=p.prem/12;an=p.prem;}
+    else if(p.mode==='Single Premium'){an=p.prem;}
+    monthly+=mo;annual+=an;
+    var modeLabel={Monthly:'mo',Quarterly:'qtr','Semi-Annual':'semi-annual',Annual:'yr','Single Premium':'single'}[p.mode]||p.mode;
+    var actualStr=p.prem?('S$'+p.prem.toLocaleString('en-SG',{minimumFractionDigits:2,maximumFractionDigits:2})+'/'+modeLabel):'S$0.00';
+    var moLabel=(p.mode!=='Monthly'&&p.mode!=='Single Premium')?' &nbsp;&middot;&nbsp; '+fmtD(mo)+'/mo equiv.':'';
+    return '<div class="pr"><span class="pl">'+(p.name||'Policy')+' <em style="opacity:.6;font-size:10px">('+p.mode+')</em></span>'
+      +'<span>'+actualStr+moLabel+'</span></div>';
+  });
+  box.innerHTML='<div class="pt">Premium Summary</div>'+rows.join('')
+    +'<div class="pr"><span>Total Monthly</span><span style="color:var(--ok)">'+fmtD(monthly)+'/month'+phpStr(monthly)+'</span></div>'
+    +'<div class="pr"><span>Total Annualised</span><span style="color:var(--ok)">'+fmt(annual)+'/year'+phpStr(annual)+'</span></div>';
+}
+
+// ── SHORTFALL CHART — injected from portfolio-summary.html ──────────────────
+
+function calculateShortfallData(){
+  var inc=getN('annualIncome')||0;
+  var dm=10,tpdm=10,cim=5,hospRef=200000;
+  var have={death:0,td:0,ci:0,hosp:0};
+  members.forEach(function(m){
+    var c=getCoverageForMember(m.id);
+    have.death+=c.death||0;have.td+=c.td||0;have.ci+=c.ci||0;have.hosp+=c.hosp||0;
+  });
+  var eduTotal=0,eduExFV=0;
+  Object.keys(eduData).forEach(function(mid){
+    var ed=eduData[mid];
+    if(ed&&ed.total){eduTotal+=ed.total;eduExFV+=(ed.exFV||0);}
+  });
+  var hasChildren=members.some(function(m){return m.type==='child';});
+  return {
+    income:inc,
+    categories:[
+      {key:'death',label:'Death',sub:dm+'x Annual Income',optimal:inc*dm,have:have.death},
+      {key:'td',label:'Total Disability',sub:tpdm+'x Annual Income',optimal:inc*tpdm,have:have.td},
+      {key:'ci',label:'Early Illness',sub:cim+'x Annual Income',optimal:inc*cim,have:have.ci},
+      {key:'hosp',label:'Hospitalisation',sub:'$200,000 yearly limit',optimal:hospRef,have:have.hosp},
+      {key:'ret',label:'Investment Retirement',sub:'FV needed at retirement',optimal:retData.amount||0,have:retData.existFV||0},
+      {key:'edu',label:'Investment Education',sub:'Total inflated tuition cost',optimal:eduTotal,have:eduExFV,hideIfNoKids:true,hasKids:hasChildren}
+    ].filter(function(c){
+      if(c.hideIfNoKids&&!c.hasKids)return false;
+      if(c.optimal<=0&&c.have<=0)return false;
+      return true;
+    })
+  };
+}
+
+function addShortfallPage(doc,client,today,stLbl,inc,sp,phpR,pg,PW,PH,M,CW){
+  // Re-use existing agent header
+  var y=_pdfPageHdr(doc,client,today,stLbl,inc,sp,phpR,PW,PH,M);
+
+  // Client band
+  doc.setFillColor(38,128,235);doc.rect(M,y,CW,9,'F');
+  doc.setFillColor(201,168,76);doc.rect(M,y,2.5,9,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(12);doc.setTextColor(255,255,255);
+  doc.text((client||'CLIENT').toUpperCase()+' \u2014 PORTFOLIO SUMMARY',M+6,y+6);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(219,234,254);
+  doc.text(stLbl+(inc>0?'  \u00b7  Annual Income: S$'+inc.toLocaleString('en-SG'):''),PW-M-3,y+6,{align:'right'});
+  y+=12;
+
+  // Section title bar
+  doc.setFillColor(201,168,76);doc.rect(M,y,3,9,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(11);doc.setTextColor(13,27,62);
+  doc.text('COVERAGE SHORTFALL ANALYSIS',M+7,y+6);
+  y+=12;
+
+  // Get data
+  var d=calculateShortfallData();
+  if(!d.categories.length){
+    doc.setFont('helvetica','italic');doc.setFontSize(11);doc.setTextColor(100,116,139);
+    doc.text('No shortfall data. Add policies and client income to view analysis.',PW/2,PH/2,{align:'center'});
+    _pdfFooter(doc,pg,PW,PH,M);return;
+  }
+
+  // Legend
+  var legY=y;
+  var legStartX=(PW-80)/2;
+  doc.setFillColor(38,128,235);doc.roundedRect(legStartX,legY,5,5,0.8,0.8,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(13,27,62);
+  doc.text('Optimal Cover',legStartX+8,legY+4);
+  doc.setFillColor(34,197,94);doc.roundedRect(legStartX+44,legY,5,5,0.8,0.8,'F');
+  doc.text('What You Have',legStartX+52,legY+4);
+  y+=12;
+
+  // Chart area
+  var chartBottom=PH-22;
+  var chartHeight=chartBottom-y;
+  var chartLeft=M+5;
+  var chartRight=PW-M-5;
+  var chartWidth=chartRight-chartLeft;
+  var labelStripH=22;
+  var plotTop=y+5;
+  var plotBottom=chartBottom-labelStripH;
+  var plotHeight=plotBottom-plotTop;
+
+  // Log scale helpers
+  var logMin=Math.log10(1000);
+  var logMax=Math.log10(10000000);
+  var logRange=logMax-logMin;
+  function logY(val){
+    var v=Math.max(val,1000);
+    return plotBottom-((Math.log10(v)-logMin)/logRange)*plotHeight;
+  }
+
+  // Grid lines
+  var gridLines=[1000,10000,100000,1000000,10000000];
+  var gridLabels=['$1K','$10K','$100K','$1M','$10M'];
+  doc.setDrawColor(230,230,230);doc.setLineWidth(0.2);
+  doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(100,116,139);
+  gridLines.forEach(function(v,i){
+    var gY=logY(v);
+    doc.line(chartLeft+10,gY,chartRight,gY);
+    doc.text(gridLabels[i],chartLeft+8,gY+1.5,{align:'right'});
+  });
+
+  // Bars
+  var nCats=d.categories.length;
+  var groupWidth=(chartWidth-15)/nCats;
+  var barPairGap=2;
+  var barWidth=(groupWidth-barPairGap-6)/2;
+  var groupOriginX=chartLeft+12;
+
+  d.categories.forEach(function(c,i){
+    var groupX=groupOriginX+i*groupWidth;
+    var blueX=groupX+(groupWidth-barPairGap-barWidth*2)/2;
+    var greenX=blueX+barWidth+barPairGap;
+
+    // Optimal Cover bar (blue)
+    var optY=c.optimal>0?logY(c.optimal):plotBottom;
+    var optH=plotBottom-optY;
+    if(c.optimal>0&&optH>0.5){
+      doc.setFillColor(38,128,235);
+      doc.roundedRect(blueX,optY,barWidth,optH,0.5,0.5,'F');
+      doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(13,27,62);
+      var optLbl=c.optimal>=1e6?'$'+(c.optimal/1e6).toFixed(2)+'M':c.optimal>=1e3?'$'+Math.round(c.optimal/1e3)+'K':'$'+Math.round(c.optimal);
+      doc.text(optLbl,blueX+barWidth/2,optY-1.5,{align:'center'});
+    }
+
+    // What You Have bar (green)
+    var haveY=c.have>0?logY(c.have):plotBottom;
+    var haveH=plotBottom-haveY;
+    if(c.have>0&&haveH>0.5){
+      doc.setFillColor(34,197,94);
+      doc.roundedRect(greenX,haveY,barWidth,haveH,0.5,0.5,'F');
+      doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(13,27,62);
+      var haveLbl=c.have>=1e6?'$'+(c.have/1e6).toFixed(2)+'M':c.have>=1e3?'$'+Math.round(c.have/1e3)+'K':'$'+Math.round(c.have);
+      doc.text(haveLbl,greenX+barWidth/2,haveY-1.5,{align:'center'});
+    } else {
+      doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(180,180,180);
+      doc.text('$0',greenX+barWidth/2,plotBottom-1.5,{align:'center'});
+    }
+
+    // Category label
+    doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(13,27,62);
+    var catLines=doc.splitTextToSize(c.label,groupWidth-2);
+    var labelY=plotBottom+5;
+    catLines.forEach(function(ln,li){doc.text(ln,groupX+groupWidth/2,labelY+li*3.5,{align:'center'});});
+
+    // Sub-label (benchmark)
+    doc.setFont('helvetica','italic');doc.setFontSize(6.5);doc.setTextColor(100,116,139);
+    var subLines=doc.splitTextToSize('('+c.sub+')',groupWidth-2);
+    var subY=labelY+catLines.length*3.5+1;
+    subLines.forEach(function(ln,li){doc.text(ln,groupX+groupWidth/2,subY+li*3,{align:'center'});});
+
+    // Shortfall indicator
+    var short=Math.max(0,c.optimal-c.have);
+    var indY=subY+subLines.length*3+2;
+    if(short<=0){
+      doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(21,128,61);
+      doc.text('\u2713 On Track',groupX+groupWidth/2,indY,{align:'center'});
+    } else {
+      doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(220,38,38);
+      var shLbl=short>=1e6?'Gap: $'+(short/1e6).toFixed(2)+'M':short>=1e3?'Gap: $'+Math.round(short/1e3)+'K':'Gap: $'+Math.round(short);
+      doc.text(shLbl,groupX+groupWidth/2,indY,{align:'center'});
+    }
+  });
+
+  // X-axis baseline
+  doc.setDrawColor(180,180,180);doc.setLineWidth(0.4);
+  doc.line(chartLeft+10,plotBottom,chartRight,plotBottom);
+
+  // Disclaimer
+  doc.setFont('helvetica','italic');doc.setFontSize(7);doc.setTextColor(100,116,139);
+  doc.text('Bars use a logarithmic scale. Benchmarks are rule-of-thumb references, adjustable per client. Not a personalised needs analysis.',PW/2,chartBottom-2,{align:'center'});
+
+  _pdfFooter(doc,pg,PW,PH,M);
+}
+
+
+
+// ── INIT ─
+
+  // Close all benefit dropdowns on outside click
+  document.addEventListener('click', function(e){
+    if(!e.target.classList.contains('ben-type-inp')){
+      document.querySelectorAll('.ben-dd.open').forEach(function(dd){dd.classList.remove('open');});
+    }
+  });
+renderMemberPills();
+renderEducationTab();
+document.getElementById('clientName').addEventListener('input',function(){if(members[0])members[0].name=this.value;});
+</script>
+
+<div class="cp-overlay" id="cpOverlay" onclick="closeClientsPanel()"></div>
+<div class="cp-panel" id="cpPanel">
+  <div class="cp-header">
+    <h3>&#128220; Saved Clients</h3>
+    <button onclick="closeClientsPanel()">&#10005; Close</button>
+  </div>
+  <div style="display:flex;gap:8px;padding:14px 16px 0"><button class="cp-save-btn" style="flex:1;margin:0" onclick="saveCurrentClient()">&#128190; Save / Update</button><button onclick="newClient()" style="flex:1;background:#DBEAFE;color:#1E40AF;border:1.5px solid #BFDBFE;border-radius:8px;padding:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;gap:6px">&#10010; New Client</button></div>
+  <div style="display:flex;gap:8px;padding:6px 16px 0">
+    <button onclick="exportClientsJSON()" style="flex:1;background:#F0FDF4;color:#15803D;border:1.5px solid #BBF7D0;border-radius:8px;padding:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;gap:5px">&#11015; Export JSON</button>
+    <label style="flex:1;background:#EFF6FF;color:#1E40AF;border:1.5px solid #BFDBFE;border-radius:8px;padding:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;gap:5px">&#11014; Import JSON<input type="file" accept=".json" style="display:none" onchange="importClientsJSON(this)"/></label>
+  </div>
+  <div class="cp-search">
+    <input type="text" id="cpSearch" placeholder="Search by name..." oninput="filterClients()"/>
+  </div>
+  <div class="cp-list" id="cpList">
+    <div class="cp-empty">No saved clients yet.<br>Fill in client details and click Save.</div>
+  </div>
+</div>
+<div id="toastEl" class="toast"></div>
+</body>
+</html>
